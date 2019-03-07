@@ -1,0 +1,229 @@
+[
+  [
+    {
+      "__type__": "cc.Prefab",
+      "_name": "猪刚鬣 ",
+      "data": {
+        "__id__": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "猪刚鬣 ",
+      "_children": [
+        {
+          "__id__": 2
+        }
+      ],
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 1
+          },
+          "_spriteFrame": {
+            "__uuid__": "803sSk1U5Hdr7KBhasI/00"
+          }
+        },
+        {
+          "__type__": "cc.Animation",
+          "node": {
+            "__id__": 1
+          },
+          "_clips": [
+            {
+              "__uuid__": "57FO3+A4RKirQy1bsYYdxn"
+            },
+            {
+              "__uuid__": "6956osmgNKerOiVuHVFenb"
+            },
+            {
+              "__uuid__": "103xFWY89OgL8ZECaZGUoR"
+            },
+            {
+              "__uuid__": "5eotJ/yAROPrD9PmXLaXuf"
+            }
+          ]
+        },
+        {
+          "__type__": "cc.BoxCollider",
+          "node": {
+            "__id__": 1
+          },
+          "_size": {
+            "__type__": "cc.Size",
+            "width": 163,
+            "height": 151
+          }
+        },
+        {
+          "__type__": "4c878Xkb9VK2aliqngFJ3K9",
+          "node": {
+            "__id__": 1
+          }
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "07e8iTKrtCDrZlmVzjgiBD"
+        },
+        "fileId": "6auIP2Us9BSYmT+Txx7Ylg"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 163,
+        "height": 151
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": 252,
+        "y": 282
+      },
+      "_scaleX": 1,
+      "_scaleY": 1,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "groupIndex": 1
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "bloodcase",
+      "_parent": {
+        "__id__": 1
+      },
+      "_children": [
+        {
+          "__id__": 3
+        }
+      ],
+      "_active": false,
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 2
+          },
+          "_spriteFrame": {
+            "__uuid__": "68kMui/3NKMqsMCn5F8alQ"
+          },
+          "_sizeMode": 0
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "07e8iTKrtCDrZlmVzjgiBD"
+        },
+        "fileId": "0cM+Mw62tCJ5jjIa4k3utj"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 125,
+        "height": 21
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": 28,
+        "y": 90.3
+      },
+      "_scaleX": 1,
+      "_scaleY": 1,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "blood",
+      "_parent": {
+        "__id__": 2
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 3
+          },
+          "_spriteFrame": {
+            "__uuid__": "1f0oUW5hFNE56Swvo7ULTI"
+          },
+          "_sizeMode": 0
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "07e8iTKrtCDrZlmVzjgiBD"
+        },
+        "fileId": "574/QlWMlHx5/PTcTqjSD7"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 48,
+        "height": 9
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2",
+        "x": 1,
+        "y": 0.5
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": -47.5,
+        "y": -0.6
+      },
+      "_scaleX": -2,
+      "_scaleY": 1,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    }
+  ],
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "frame0",
+      "texture": "9bx/PH75hHj42UiY67yheX",
+      "rect": [
+        59,
+        90,
+        163,
+        151
+      ],
+      "offset": [
+        -19.5,
+        -5.5
+      ],
+      "originalSize": [
+        320,
+        320
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

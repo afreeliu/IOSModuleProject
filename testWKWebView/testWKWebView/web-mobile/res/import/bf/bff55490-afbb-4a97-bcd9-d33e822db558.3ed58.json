@@ -1,0 +1,78 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "Pay_Config",
+  "json": [
+    {
+      "ID": "py001",
+      "Gold": 300,
+      "Crystal": 1200,
+      "Price": 6,
+      "IDName": "1200元宝",
+      "productID": "com.game.dg.xlydg6",
+      "Brief": "获得游戏游戏1200元宝，首冲翻倍"
+    },
+    {
+      "ID": "py002",
+      "Gold": 900,
+      "Crystal": 6000,
+      "Price": 30,
+      "IDName": "6000元宝",
+      "productID": "com.game.dg.xlydg30",
+      "Brief": "获得游戏游戏6000元宝，首冲翻倍"
+    },
+    {
+      "ID": "py003",
+      "Gold": 1200,
+      "Crystal": 13600,
+      "Price": 68,
+      "IDName": "13600元宝",
+      "productID": "com.game.dg.xlydg68",
+      "Brief": "获得游戏游戏13600元宝，首冲翻倍"
+    },
+    {
+      "ID": "py004",
+      "Gold": 3400,
+      "Crystal": 39600,
+      "Price": 198,
+      "IDName": "39600元宝",
+      "productID": "com.game.dg.xlydg198",
+      "Brief": "获得游戏游戏39600元宝，首冲翻倍"
+    },
+    {
+      "ID": "py005",
+      "Gold": 5000,
+      "Crystal": 64800,
+      "Price": 328,
+      "IDName": "64800元宝",
+      "productID": "com.game.dg.xlydg328",
+      "Brief": "获得游戏游戏64800元宝，首冲翻倍"
+    },
+    {
+      "ID": "py006",
+      "Gold": 7800,
+      "Crystal": 129600,
+      "Price": 648,
+      "IDName": "129600元宝",
+      "productID": "com.game.dg.xlydg648",
+      "Brief": "获得游戏游戏129600元宝，首冲翻倍"
+    },
+    {
+      "ID": "py007",
+      "Gold": 9200,
+      "Crystal": 6000,
+      "Price": 30,
+      "IDName": "月卡",
+      "productID": "com.game.dg.xlydgyk30",
+      "Brief": "立即获得6000元宝，30天内每日领取2000元宝"
+    },
+    {
+      "ID": "py008",
+      "Gold": 11800,
+      "Crystal": 16888,
+      "Price": 88,
+      "IDName": "年卡",
+      "productID": "com.game.dg.xlydgzs88",
+      "Brief": "立即获得16888元宝，每日领取2000元宝"
+    }
+  ]
+}

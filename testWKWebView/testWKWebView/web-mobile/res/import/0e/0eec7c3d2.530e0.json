@@ -1,0 +1,149 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "dm_idle4",
+      "texture": "6baHpA5D1CY6Pk4YEEWu59",
+      "rect": [
+        0,
+        0,
+        191,
+        153
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        191,
+        153
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "dm_idle1",
+      "texture": "56laJh3EVEvKpnfU/JNMZ/",
+      "rect": [
+        0,
+        0,
+        193,
+        153
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        193,
+        153
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "dm_idle3",
+      "texture": "c6xSn418ZB3oeeDFB0DtuD",
+      "rect": [
+        0,
+        0,
+        191,
+        153
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        191,
+        153
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "idle",
+    "_duration": 0.4,
+    "sample": 40,
+    "wrapMode": "2",
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "83BRSnbNNM25NmmlciIQCv"
+              }
+            },
+            {
+              "frame": 0.125,
+              "value": {
+                "__uuid__": "ef3diBntBCFaSqh8Yt2tSW"
+              }
+            },
+            {
+              "frame": 0.25,
+              "value": {
+                "__uuid__": "c94q4QKgpO8ZXeTV61ax1Y"
+              }
+            },
+            {
+              "frame": 0.375,
+              "value": {
+                "__uuid__": "22U/TgYk1MW7jhPVfBYjIT"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "dm_idle2",
+      "texture": "6e+X0H3JVII6JqTyF73Ijk",
+      "rect": [
+        0,
+        0,
+        191,
+        153
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        191,
+        153
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

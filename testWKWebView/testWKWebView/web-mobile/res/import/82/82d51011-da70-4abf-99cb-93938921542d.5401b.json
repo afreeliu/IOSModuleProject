@@ -1,0 +1,161 @@
+[
+  {
+    "__type__": "cc.Prefab",
+    "_name": "returnBtn",
+    "data": {
+      "__id__": 1
+    }
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "returnBtn",
+    "_children": [
+      {
+        "__id__": 2
+      }
+    ],
+    "_components": [
+      {
+        "__type__": "cc.Sprite",
+        "node": {
+          "__id__": 1
+        },
+        "_spriteFrame": {
+          "__uuid__": "ce9BNDQl9KE6VmVGBcKjKm"
+        },
+        "_type": 1,
+        "_sizeMode": 0
+      },
+      {
+        "__type__": "cc.Button",
+        "node": {
+          "__id__": 1
+        },
+        "_N$transition": 2,
+        "transition": 2,
+        "_N$normalColor": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "_N$pressedColor": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "pressedColor": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "_N$disabledColor": {
+          "__type__": "cc.Color",
+          "r": 255,
+          "g": 255,
+          "b": 255
+        },
+        "_N$normalSprite": {
+          "__uuid__": "ce9BNDQl9KE6VmVGBcKjKm"
+        },
+        "_N$pressedSprite": {
+          "__uuid__": "ce9BNDQl9KE6VmVGBcKjKm"
+        },
+        "pressedSprite": {
+          "__uuid__": "ce9BNDQl9KE6VmVGBcKjKm"
+        },
+        "_N$hoverSprite": {
+          "__uuid__": "ce9BNDQl9KE6VmVGBcKjKm"
+        },
+        "hoverSprite": {
+          "__uuid__": "ce9BNDQl9KE6VmVGBcKjKm"
+        },
+        "_N$disabledSprite": {
+          "__uuid__": "ce9BNDQl9KE6VmVGBcKjKm"
+        },
+        "_N$target": {
+          "__id__": 1
+        }
+      }
+    ],
+    "_prefab": {
+      "__type__": "cc.PrefabInfo",
+      "root": {
+        "__id__": 1
+      },
+      "asset": {
+        "__id__": 0
+      },
+      "fileId": "4dNluR9hJPMYl4JZeoNZ1W"
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 120,
+      "height": 60
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 384,
+      "y": 267
+    },
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "Label",
+    "_parent": {
+      "__id__": 1
+    },
+    "_components": [
+      {
+        "__type__": "cc.Label",
+        "node": {
+          "__id__": 2
+        },
+        "_useOriginalSize": false,
+        "_string": "返回",
+        "_N$string": "返回",
+        "_fontSize": 50,
+        "_enableWrapText": false,
+        "_N$horizontalAlign": 1,
+        "_N$verticalAlign": 1,
+        "_N$overflow": 1
+      }
+    ],
+    "_prefab": {
+      "__type__": "cc.PrefabInfo",
+      "root": {
+        "__id__": 1
+      },
+      "asset": {
+        "__id__": 0
+      },
+      "fileId": "17lh9O53RA97YfssGKKYY4"
+    },
+    "_color": {
+      "__type__": "cc.Color"
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 120,
+      "height": 60
+    },
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  }
+]

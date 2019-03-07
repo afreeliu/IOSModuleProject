@@ -1,0 +1,150 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "equipment_Config",
+  "json": [
+    {
+      "ID": "EQ101",
+      "Name": "新手刀",
+      "AssetsName": "EQ101",
+      "Hp": 0,
+      "Attack": 20,
+      "Defence": 0,
+      "Exp": 0,
+      "BuyGold": 1000,
+      "SellGold": 100,
+      "Brief": "新手刀"
+    },
+    {
+      "ID": "EQ102",
+      "Name": "中级刀",
+      "AssetsName": "EQ102",
+      "Hp": 0,
+      "Attack": 40,
+      "Defence": 0,
+      "Exp": 0,
+      "BuyGold": 10000,
+      "SellGold": 500,
+      "Brief": "中级刀"
+    },
+    {
+      "ID": "EQ103",
+      "Name": "高级刀",
+      "AssetsName": "EQ103",
+      "Hp": 0,
+      "Attack": 60,
+      "Defence": 0,
+      "Exp": 0,
+      "BuyGold": 100000,
+      "SellGold": 1000,
+      "Brief": "高级刀"
+    },
+    {
+      "ID": "EQ201",
+      "Name": "新手头盔",
+      "AssetsName": "EQ201",
+      "Hp": 0,
+      "Attack": 0,
+      "Defence": 10,
+      "Exp": 0,
+      "BuyGold": 1000,
+      "SellGold": 100,
+      "Brief": "新手头盔"
+    },
+    {
+      "ID": "EQ202",
+      "Name": "中级头盔",
+      "AssetsName": "EQ202",
+      "Hp": 0,
+      "Attack": 0,
+      "Defence": 20,
+      "Exp": 0,
+      "BuyGold": 10000,
+      "SellGold": 300,
+      "Brief": "中级头盔"
+    },
+    {
+      "ID": "EQ203",
+      "Name": "高级头盔",
+      "AssetsName": "EQ203",
+      "Hp": 0,
+      "Attack": 0,
+      "Defence": 50,
+      "Exp": 0,
+      "BuyGold": 200000,
+      "SellGold": 1500,
+      "Brief": "高级头盔"
+    },
+    {
+      "ID": "EQ301",
+      "Name": "新手鞋子",
+      "AssetsName": "EQ301",
+      "Hp": 0,
+      "Attack": 0,
+      "Defence": 10,
+      "Exp": 0,
+      "BuyGold": 1000,
+      "SellGold": 100,
+      "Brief": "新手鞋子"
+    },
+    {
+      "ID": "EQ302",
+      "Name": "中级鞋子",
+      "AssetsName": "EQ302",
+      "Hp": 0,
+      "Attack": 0,
+      "Defence": 40,
+      "Exp": 0,
+      "BuyGold": 20000,
+      "SellGold": 400,
+      "Brief": "中级鞋子"
+    },
+    {
+      "ID": "EQ303",
+      "Name": "高级鞋子",
+      "AssetsName": "EQ303",
+      "Hp": 0,
+      "Attack": 0,
+      "Defence": 60,
+      "Exp": 0,
+      "BuyGold": 500000,
+      "SellGold": 3000,
+      "Brief": "高级鞋子"
+    },
+    {
+      "ID": "EQ401",
+      "Name": "新手胸甲",
+      "AssetsName": "EQ401",
+      "Hp": 100,
+      "Attack": 0,
+      "Defence": 0,
+      "Exp": 0,
+      "BuyGold": 5000,
+      "SellGold": 200,
+      "Brief": "新手胸甲"
+    },
+    {
+      "ID": "EQ402",
+      "Name": "中级胸甲",
+      "AssetsName": "EQ402",
+      "Hp": 200,
+      "Attack": 0,
+      "Defence": 0,
+      "Exp": 0,
+      "BuyGold": 50000,
+      "SellGold": 500,
+      "Brief": "中级胸甲"
+    },
+    {
+      "ID": "EQ403",
+      "Name": "高级胸甲",
+      "AssetsName": "EQ403",
+      "Hp": 400,
+      "Attack": 0,
+      "Defence": 0,
+      "Exp": 0,
+      "BuyGold": 400000,
+      "SellGold": 2500,
+      "Brief": "高级胸甲"
+    }
+  ]
+}

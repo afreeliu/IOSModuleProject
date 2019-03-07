@@ -1,0 +1,146 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "兽骑Leve",
+  "json": [
+    {
+      "Leve": 1,
+      "Hp": 80,
+      "Attack": 13,
+      "Defence": 0,
+      "Price": 400
+    },
+    {
+      "Leve": 2,
+      "Hp": 100,
+      "Attack": 33,
+      "Defence": 0,
+      "Price": 580
+    },
+    {
+      "Leve": 3,
+      "Hp": 120,
+      "Attack": 53,
+      "Defence": 0,
+      "Price": 760
+    },
+    {
+      "Leve": 4,
+      "Hp": 140,
+      "Attack": 73,
+      "Defence": 0,
+      "Price": 940
+    },
+    {
+      "Leve": 5,
+      "Hp": 160,
+      "Attack": 93,
+      "Defence": 0,
+      "Price": 1120
+    },
+    {
+      "Leve": 6,
+      "Hp": 180,
+      "Attack": 113,
+      "Defence": 0,
+      "Price": 1300
+    },
+    {
+      "Leve": 7,
+      "Hp": 200,
+      "Attack": 133,
+      "Defence": 0,
+      "Price": 1480
+    },
+    {
+      "Leve": 8,
+      "Hp": 220,
+      "Attack": 153,
+      "Defence": 0,
+      "Price": 1660
+    },
+    {
+      "Leve": 9,
+      "Hp": 240,
+      "Attack": 173,
+      "Defence": 0,
+      "Price": 1840
+    },
+    {
+      "Leve": 10,
+      "Hp": 260,
+      "Attack": 193,
+      "Defence": 0,
+      "Price": 2020
+    },
+    {
+      "Leve": 11,
+      "Hp": 280,
+      "Attack": 213,
+      "Defence": 0,
+      "Price": 2200
+    },
+    {
+      "Leve": 12,
+      "Hp": 300,
+      "Attack": 233,
+      "Defence": 0,
+      "Price": 2380
+    },
+    {
+      "Leve": 13,
+      "Hp": 320,
+      "Attack": 253,
+      "Defence": 0,
+      "Price": 2560
+    },
+    {
+      "Leve": 14,
+      "Hp": 340,
+      "Attack": 273,
+      "Defence": 0,
+      "Price": 2740
+    },
+    {
+      "Leve": 15,
+      "Hp": 360,
+      "Attack": 293,
+      "Defence": 0,
+      "Price": 2920
+    },
+    {
+      "Leve": 16,
+      "Hp": 380,
+      "Attack": 313,
+      "Defence": 0,
+      "Price": 3100
+    },
+    {
+      "Leve": 17,
+      "Hp": 400,
+      "Attack": 333,
+      "Defence": 0,
+      "Price": 3280
+    },
+    {
+      "Leve": 18,
+      "Hp": 420,
+      "Attack": 353,
+      "Defence": 0,
+      "Price": 3460
+    },
+    {
+      "Leve": 19,
+      "Hp": 440,
+      "Attack": 373,
+      "Defence": 0,
+      "Price": 3640
+    },
+    {
+      "Leve": 20,
+      "Hp": 460,
+      "Attack": 393,
+      "Defence": 0,
+      "Price": 3820
+    }
+  ]
+}

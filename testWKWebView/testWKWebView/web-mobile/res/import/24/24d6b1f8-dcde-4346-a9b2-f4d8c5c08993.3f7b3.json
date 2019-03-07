@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "懒人素材 (61)",
+    "texture": "8bJ6jFUNdEPo1Qc3jMl9B7",
+    "rect": [
+      12,
+      12,
+      105,
+      104
+    ],
+    "offset": [
+      0.5,
+      0
+    ],
+    "originalSize": [
+      128,
+      128
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

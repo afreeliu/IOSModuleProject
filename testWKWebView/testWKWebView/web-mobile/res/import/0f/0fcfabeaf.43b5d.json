@@ -1,0 +1,239 @@
+[
+  [
+    {
+      "__type__": "cc.Prefab",
+      "_name": "邓茂",
+      "data": {
+        "__id__": 1
+      },
+      "asyncLoadAssets": true
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "邓茂",
+      "_children": [
+        {
+          "__id__": 2
+        }
+      ],
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 1
+          },
+          "_spriteFrame": {
+            "__uuid__": "b7Jf+RELFBn7FJn53doWrI"
+          }
+        },
+        {
+          "__type__": "cc.Animation",
+          "node": {
+            "__id__": 1
+          },
+          "_clips": [
+            {
+              "__uuid__": "e9d1L9hmRH+7oEOj6ClQew"
+            },
+            {
+              "__uuid__": "f6/2x7ga9Nyr+yyDeXD4b7"
+            },
+            {
+              "__uuid__": "43XnRL+o9MCrYIe2kNMoMX"
+            },
+            {
+              "__uuid__": "b7tfVdszNPvJK3R//u/EjX"
+            }
+          ]
+        },
+        {
+          "__type__": "cc.BoxCollider",
+          "node": {
+            "__id__": 1
+          },
+          "_offset": {
+            "__type__": "cc.Vec2",
+            "y": 63
+          },
+          "_size": {
+            "__type__": "cc.Size",
+            "width": 100,
+            "height": 143
+          }
+        },
+        {
+          "__type__": "4c878Xkb9VK2aliqngFJ3K9",
+          "node": {
+            "__id__": 1
+          }
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "7dhuSXiy5IlrmCK0Mvg3Tp"
+        },
+        "fileId": "41mwTRRiFBJbgvo60rRFqg"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 204,
+        "height": 146
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2",
+        "x": 0.5
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": 29,
+        "y": -1
+      },
+      "_scaleX": 1,
+      "_scaleY": 1,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "groupIndex": 1
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "bloodcase",
+      "_parent": {
+        "__id__": 1
+      },
+      "_children": [
+        {
+          "__id__": 3
+        }
+      ],
+      "_active": false,
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 2
+          },
+          "_spriteFrame": {
+            "__uuid__": "68kMui/3NKMqsMCn5F8alQ"
+          },
+          "_sizeMode": 0
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "7dhuSXiy5IlrmCK0Mvg3Tp"
+        },
+        "fileId": "b50BkAarhLTYRbn5CNxmXH"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 125,
+        "height": 21
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "y": 157
+      },
+      "_scaleX": 1,
+      "_scaleY": 1,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    },
+    {
+      "__type__": "cc.Node",
+      "_name": "blood",
+      "_parent": {
+        "__id__": 2
+      },
+      "_components": [
+        {
+          "__type__": "cc.Sprite",
+          "node": {
+            "__id__": 3
+          },
+          "_spriteFrame": {
+            "__uuid__": "1f0oUW5hFNE56Swvo7ULTI"
+          },
+          "_type": 3,
+          "_sizeMode": 0,
+          "_fillRange": 1
+        }
+      ],
+      "_prefab": {
+        "__type__": "cc.PrefabInfo",
+        "root": {
+          "__id__": 1
+        },
+        "asset": {
+          "__uuid__": "7dhuSXiy5IlrmCK0Mvg3Tp"
+        },
+        "fileId": "97BTtbMElMy5pMIe8BpFE4"
+      },
+      "_contentSize": {
+        "__type__": "cc.Size",
+        "width": 48,
+        "height": 9
+      },
+      "_anchorPoint": {
+        "__type__": "cc.Vec2",
+        "x": 1,
+        "y": 0.5
+      },
+      "_position": {
+        "__type__": "cc.Vec3",
+        "x": -47.5,
+        "y": -0.6
+      },
+      "_scaleX": -2,
+      "_scaleY": 1,
+      "_scale": {
+        "__type__": "cc.Vec3",
+        "x": 1,
+        "y": 1,
+        "z": 1
+      }
+    }
+  ],
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "dm_die1",
+      "texture": "d4dkRvC9xOvLeb9Sk3YDta",
+      "rect": [
+        0,
+        0,
+        204,
+        146
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "originalSize": [
+        204,
+        146
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

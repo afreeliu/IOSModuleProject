@@ -1,0 +1,3092 @@
+<!DOCTYPE html>
+<!--[if IE 6]><html class="ie lt-ie8"><![endif]-->
+<!--[if IE 7]><html class="ie lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="ie ie8"><![endif]-->
+<!--[if IE 9]><html class="ie ie9"><![endif]-->
+<!--[if !IE]><!-->
+<html><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+  <!-- Start of Baidu Transcode -->
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="MobileOptimized" content="width">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="mobile-agent" content="format=html5;url=https://www.jianshu.com/p/4fa8c4eb1316">
+  <!-- End of Baidu Transcode -->
+
+    <meta name="description" content="前言 Xcode8发布以后，编译器开始不支持IOS7，所以很多应用在适配IOS10之后都不在适配IOS7了，其中包括了很多大公司，网易新闻，滴滴出行等。因此，我们公司的应用也打算淘汰IOS7。 支持到IOS8，第一个要改的自然是用WKWebView替换原来的UIWebView。WKWebView有很多明显优势: 更多的支持HTML5的特性 官方宣称的高达60fps的滚动刷新率以及内置手势 将...">
+
+  <meta name="360-site-verification" content="604a14b53c6b871206001285921e81d8">
+  <meta property="wb:webmaster" content="294ec9de89e7fadb">
+  <meta property="qc:admins" content="104102651453316562112116375">
+  <meta property="qc:admins" content="11635613706305617">
+  <meta property="qc:admins" content="1163561616621163056375">
+  <meta name="google-site-verification" content="cV4-qkUJZR6gmFeajx_UyPe47GW9vY6cnCrYtCHYNh4">
+  <meta name="google-site-verification" content="HF7lfF8YEGs1qtCE-kPml8Z469e2RHhGajy6JPVy5XI">
+  <meta http-equiv="mobile-agent" content="format=html5; url=https://www.jianshu.com/p/4fa8c4eb1316">
+
+  <!-- Apple -->
+  <meta name="apple-mobile-web-app-title" content="简书">
+
+    <!--  Meta for Smart App Banner -->
+  <meta name="apple-itunes-app" content="app-id=888237539, app-argument=jianshu://notes/6192976">
+  <!-- End -->
+
+  <!--  Meta for Twitter Card -->
+  <meta content="summary" property="twitter:card">
+  <meta content="@jianshucom" property="twitter:site">
+  <meta content="IOS进阶之WKWebView" property="twitter:title">
+  <meta content="前言 Xcode8发布以后，编译器开始不支持IOS7，所以很多应用在适配IOS10之后都不在适配IOS7了，其中包括了很多大公司，网易新闻，滴滴出行等。因此，我们公司的应用也..." property="twitter:description">
+  <meta content="https://www.jianshu.com/p/4fa8c4eb1316" property="twitter:url">
+  <!-- End -->
+
+  <!--  Meta for OpenGraph -->
+  <meta property="fb:app_id" content="865829053512461">
+  <meta property="og:site_name" content="简书">
+  <meta property="og:title" content="IOS进阶之WKWebView">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.jianshu.com/p/4fa8c4eb1316">
+  <meta property="og:description" content="前言 Xcode8发布以后，编译器开始不支持IOS7，所以很多应用在适配IOS10之后都不在适配IOS7了，其中包括了很多大公司，网易新闻，滴滴出行等。因此，我们公司的应用也打算淘汰IOS7。 ...">
+  <!-- End -->
+
+  <!--  Meta for Facebook Applinks -->
+  <meta property="al:ios:url" content="jianshu://notes/6192976">
+  <meta property="al:ios:app_store_id" content="888237539">
+  <meta property="al:ios:app_name" content="简书">
+
+  <meta property="al:android:url" content="jianshu://notes/6192976">
+  <meta property="al:android:package" content="com.jianshu.haruki">
+  <meta property="al:android:app_name" content="简书">
+  <!-- End -->
+
+
+    <title>IOS进阶之WKWebView - 简书</title>
+
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="47y/I3C1TATLw6LGwZEdSy2D60L1QIaRyS0VZDobXQyfMeKbUs1uaR1CSX1n4A8fjYLbRgTan7hcX6qJJIT70A==">
+
+  <link rel="stylesheet" media="all" href="h5_files/web-221ec98db5f8f985b66f.css">
+  
+  <link rel="stylesheet" media="all" href="h5_files/entry-468d5669dc55b0d2a6c2.css">
+
+  <link href="https://cdn2.jianshu.io/assets/favicons/favicon-e743bfb1821442341c3ab15bdbe804f7ad97676bd07a770ccc9483473aa76f06.ico" rel="shortcut icon" type="image/x-icon">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/57-a6f1f1ee62ace44f6dc2f6a08575abd3c3b163288881c78dd8d75247682a4b27.png" sizes="57x57">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/72-fb9834bcfce738fd7b9c5e31363e79443e09a81a8e931170b58bc815387c1562.png" sizes="72x72">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/76-49d88e539ff2489475d603994988d871219141ecaa0b1a7a9a1914f4fe3182d6.png" sizes="76x76">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/114-24252fe693524ed3a9d0905e49bff3cbd0228f25a320aa09053c2ebb4955de97.png" sizes="114x114">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/120-1bb7371f5e87f93ce780a5f1a05ff1b176828ee0d1d130e768575918a2e05834.png" sizes="120x120">
+      <link rel="apple-touch-icon-precomposed" href="https://cdn2.jianshu.io/assets/apple-touch-icons/152-bf209460fc1c17bfd3e2b84c8e758bc11ca3e570fd411c3bbd84149b97453b99.png" sizes="152x152">
+
+  <!-- Start of 访问统计 -->
+    <script src="h5_files/push.js"></script><script src="h5_files/hm.js"></script><script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?0c0e9d9b1e7d617b3e6842e85b9fb068";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <!-- End of 访问统计 -->
+<style type="text/css">fieldset[disabled] .multiselect {
+  pointer-events: none;
+}
+
+.multiselect__spinner {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  width: 48px;
+  height: 35px;
+  background: #fff;
+  display: block;
+}
+
+.multiselect__spinner:after,
+.multiselect__spinner:before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  margin: -8px 0 0 -8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  border-color: #41b883 transparent transparent;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: 0 0 0 1px transparent;
+}
+
+.multiselect__spinner:before {
+  animation: a 2.4s cubic-bezier(.41,.26,.2,.62);
+  animation-iteration-count: infinite;
+}
+
+.multiselect__spinner:after {
+  animation: a 2.4s cubic-bezier(.51,.09,.21,.8);
+  animation-iteration-count: infinite;
+}
+
+.multiselect__loading-enter-active,
+.multiselect__loading-leave-active {
+  transition: opacity .4s ease-in-out;
+  opacity: 1;
+}
+
+.multiselect__loading-enter,
+.multiselect__loading-leave-active {
+  opacity: 0;
+}
+
+.multiselect,
+.multiselect__input,
+.multiselect__single {
+  font-family: inherit;
+  font-size: 14px;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+.multiselect {
+  box-sizing: content-box;
+  display: block;
+  position: relative;
+  width: 100%;
+  min-height: 40px;
+  text-align: left;
+  color: #35495e;
+}
+
+.multiselect * {
+  box-sizing: border-box;
+}
+
+.multiselect:focus {
+  outline: none;
+}
+
+.multiselect--disabled {
+  opacity: .6;
+}
+
+.multiselect--active {
+  z-index: 1;
+}
+
+.multiselect--active:not(.multiselect--above) .multiselect__current,
+.multiselect--active:not(.multiselect--above) .multiselect__input,
+.multiselect--active:not(.multiselect--above) .multiselect__tags {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.multiselect--active .multiselect__select {
+  transform: rotate(180deg);
+}
+
+.multiselect--above.multiselect--active .multiselect__current,
+.multiselect--above.multiselect--active .multiselect__input,
+.multiselect--above.multiselect--active .multiselect__tags {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.multiselect__input,
+.multiselect__single {
+  position: relative;
+  display: inline-block;
+  min-height: 20px;
+  line-height: 20px;
+  border: none;
+  border-radius: 5px;
+  background: #fff;
+  padding: 0 0 0 5px;
+  width: 100%;
+  transition: border .1s ease;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  vertical-align: top;
+}
+
+.multiselect__tag~.multiselect__input,
+.multiselect__tag~.multiselect__single {
+  width: auto;
+}
+
+.multiselect__input:hover,
+.multiselect__single:hover {
+  border-color: #cfcfcf;
+}
+
+.multiselect__input:focus,
+.multiselect__single:focus {
+  border-color: #a8a8a8;
+  outline: none;
+}
+
+.multiselect__single {
+  padding-left: 6px;
+  margin-bottom: 8px;
+}
+
+.multiselect__tags-wrap {
+  display: inline;
+}
+
+.multiselect__tags {
+  min-height: 40px;
+  display: block;
+  padding: 8px 40px 0 8px;
+  border-radius: 5px;
+  border: 1px solid #e8e8e8;
+  background: #fff;
+}
+
+.multiselect__tag {
+  position: relative;
+  display: inline-block;
+  padding: 4px 26px 4px 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+  color: #fff;
+  line-height: 1;
+  background: #41b883;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+
+.multiselect__tag-icon {
+  cursor: pointer;
+  margin-left: 7px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  font-weight: 700;
+  font-style: normal;
+  width: 22px;
+  text-align: center;
+  line-height: 22px;
+  transition: all .2s ease;
+  border-radius: 5px;
+}
+
+.multiselect__tag-icon:after {
+  content: "\D7";
+  color: #266d4d;
+  font-size: 14px;
+}
+
+.multiselect__tag-icon:focus,
+.multiselect__tag-icon:hover {
+  background: #369a6e;
+}
+
+.multiselect__tag-icon:focus:after,
+.multiselect__tag-icon:hover:after {
+  color: #fff;
+}
+
+.multiselect__current {
+  min-height: 40px;
+  overflow: hidden;
+  padding: 8px 12px 0;
+  padding-right: 30px;
+  white-space: nowrap;
+  border-radius: 5px;
+  border: 1px solid #e8e8e8;
+}
+
+.multiselect__current,
+.multiselect__select {
+  line-height: 16px;
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.multiselect__select {
+  position: absolute;
+  width: 40px;
+  height: 38px;
+  right: 1px;
+  top: 1px;
+  padding: 4px 8px;
+  text-align: center;
+  transition: transform .2s ease;
+}
+
+.multiselect__select:before {
+  position: relative;
+  right: 0;
+  top: 65%;
+  color: #999;
+  margin-top: 4px;
+  border-style: solid;
+  border-width: 5px 5px 0;
+  border-color: #999 transparent transparent;
+  content: "";
+}
+
+.multiselect__placeholder {
+  color: #adadad;
+  display: inline-block;
+  margin-bottom: 10px;
+  padding-top: 2px;
+}
+
+.multiselect--active .multiselect__placeholder {
+  display: none;
+}
+
+.multiselect__content-wrapper {
+  position: absolute;
+  display: block;
+  background: #fff;
+  width: 100%;
+  max-height: 240px;
+  overflow: auto;
+  border: 1px solid #e8e8e8;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: 1;
+  -webkit-overflow-scrolling: touch;
+}
+
+.multiselect__content {
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  min-width: 100%;
+  vertical-align: top;
+}
+
+.multiselect--above .multiselect__content-wrapper {
+  bottom: 100%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: none;
+  border-top: 1px solid #e8e8e8;
+}
+
+.multiselect__content::webkit-scrollbar {
+  display: none;
+}
+
+.multiselect__element {
+  display: block;
+}
+
+.multiselect__option {
+  display: block;
+  padding: 12px;
+  min-height: 40px;
+  line-height: 16px;
+  text-decoration: none;
+  text-transform: none;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.multiselect__option:after {
+  top: 0;
+  right: 0;
+  position: absolute;
+  line-height: 40px;
+  padding-right: 12px;
+  padding-left: 20px;
+}
+
+.multiselect__option--highlight {
+  background: #41b883;
+  outline: none;
+  color: #fff;
+}
+
+.multiselect__option--highlight:after {
+  content: attr(data-select);
+  background: #41b883;
+  color: #fff;
+}
+
+.multiselect__option--selected {
+  background: #f3f3f3;
+  color: #35495e;
+  font-weight: 700;
+}
+
+.multiselect__option--selected:after {
+  content: attr(data-selected);
+  color: silver;
+}
+
+.multiselect__option--selected.multiselect__option--highlight {
+  background: #ff6a6a;
+  color: #fff;
+}
+
+.multiselect__option--selected.multiselect__option--highlight:after {
+  background: #ff6a6a;
+  content: attr(data-deselect);
+  color: #fff;
+}
+
+.multiselect--disabled {
+  background: #ededed;
+  pointer-events: none;
+}
+
+.multiselect--disabled .multiselect__current,
+.multiselect--disabled .multiselect__select,
+.multiselect__option--disabled {
+  background: #ededed;
+  color: #a6a6a6;
+}
+
+.multiselect__option--disabled {
+  cursor: text;
+  pointer-events: none;
+}
+
+.multiselect__option--disabled.multiselect__option--highlight {
+  background: #dedede!important;
+}
+
+.multiselect-enter-active,
+.multiselect-leave-active {
+  transition: all .15s ease;
+}
+
+.multiselect-enter,
+.multiselect-leave-active {
+  opacity: 0;
+}
+
+.multiselect__strong {
+  margin-bottom: 8px;
+  line-height: 20px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+[dir=rtl] .multiselect {
+  text-align: right;
+}
+
+[dir=rtl] .multiselect__select {
+  right: auto;
+  left: 1px;
+}
+
+[dir=rtl] .multiselect__tags {
+  padding: 8px 8px 0 40px;
+}
+
+[dir=rtl] .multiselect__content {
+  text-align: right;
+}
+
+[dir=rtl] .multiselect__option:after {
+  right: auto;
+  left: 0;
+}
+
+[dir=rtl] .multiselect__clear {
+  right: auto;
+  left: 12px;
+}
+
+[dir=rtl] .multiselect__spinner {
+  right: auto;
+  left: 1px;
+}
+
+@keyframes a {
+  0% {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(2turn);
+  }
+}</style><style type="text/css">@font-face {
+  font-family: 'KaTeX_AMS';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_AMS-Regular-3d8245dcb4489694a6a263b05c1cca01.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_AMS-Regular-ac1d46d953d403677171697581a284d2.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_AMS-Regular-c67be87adba7d31c013be127b936233d.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Caligraphic';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Caligraphic-Bold-970d3e76493b82fccf21ad5888ddee77.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Caligraphic-Bold-445f96a387df0d13ded71f27c608516d.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Caligraphic-Bold-3f61a84d76e80396489d32bc9dd8d444.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Caligraphic';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular-0ef0f2e356a2e1c457b6585d34edae77.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular-74f6918c7d2b768ffd32048102bc0172.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Caligraphic-Regular-c3bc8fcec0e85a50cabf71e4e8074991.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Fraktur';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Fraktur-Bold-950649ba5e5cfd37cdad74095411d350.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Fraktur-Bold-1aca7ef7f976fb54a207ffc8aa180e38.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Fraktur-Bold-e11e6bf02fc41279a540d3655abf3b07.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Fraktur';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular-135ccd74931753318f6f52f3fce19018.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular-c5b430bfcb3e5423b77401afcdb69b66.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Fraktur-Regular-a9509497466d16e6b7265a223ea39093.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Main';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Main-Bold-82bce349c8ff0927380b5177e9258ad0.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Main-Bold-29d4b276c622ff1d1376d9afcbd2f25a.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Main-Bold-db576c7d5d6eb6ebefc9b334f4140d42.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Main';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Main-BoldItalic-13900e552dbf51aead905f897043226c.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Main-BoldItalic-3f3be43bbdd58a4a86c8eddd3d39a26a.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Main-BoldItalic-cec43f729e0e6810c3433f6020ec676e.ttf) format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'KaTeX_Main';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Main-Italic-b488f60f79c9d1f533def644385d8219.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Main-Italic-f8a754484e776e94b6116dfbcb1761a7.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Main-Italic-85b3329fdb41fadfb0fdc01ec5290b2f.ttf) format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'KaTeX_Main';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Main-Regular-999cd6bac6e8118065ac500d4f133c63.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Main-Regular-485696cf1d821baac6ae06c42e09faef.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Main-Regular-f4fe6dca4a5f5520ae0caab31848aae3.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Math';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Math-Italic-7a31741a44e58952cb4b8a763c206fcd.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Math-Italic-8eb56b3ff5b141cd3732a24e65c2b339.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Math-Italic-10740d7488d690a743339650103f1cb3.ttf) format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'KaTeX_SansSerif';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_SansSerif-Bold-0d0f967a34b828083a11bb264e578c32.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_SansSerif-Bold-99bd87431ac7ef8f27591f72d7812509.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_SansSerif-Bold-771a1f955e7ff2106402b58d1e8a1ad2.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_SansSerif';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_SansSerif-Italic-b1ac79b9b69c954bbeb8fc02500832e0.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_SansSerif-Italic-9c3f03ec809c6f298d716cbda8260fcb.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_SansSerif-Italic-cb729d47fbd26ff0ae62bb840085e5b5.ttf) format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'KaTeX_SansSerif';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_SansSerif-Regular-23f1730fda70ec6ec6aa789979890cba.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_SansSerif-Regular-fc90839714a9e877682309c3daf7493e.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_SansSerif-Regular-43b0cb92c2405f175772931ccd68002e.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Script';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Script-Regular-ae1fad1f4d1c227c9d567da8ea9f988c.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Script-Regular-60febfa114c5e32f0ce73050476aa39f.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Script-Regular-e9169ca7b32608b6235ec9ffff742a71.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Size1';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Size1-Regular-fda0824e8cfb676664ad063c367cfce3.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Size1-Regular-1d6cf6b89f694dc76e13ecc4e8214dd2.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Size1-Regular-f2e296ef7cef0f6f16912e5d171929b2.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Size2';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Size2-Regular-a7a0eb93afb696cb9b4efb87e6cd45a3.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Size2-Regular-f48e83b7bcaa68a86a78e8edfee1a04e.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Size2-Regular-0767ede65042583bcc06f09055f4d7ca.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Size3';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Size3-Regular-397bd6872be7adff4f000c49fa85a9c3.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Size3-Regular-0387ab387ace32f15b43c3a4a39f187f.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Size3-Regular-882f723427a0986846fe786bd8d6f6c7.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Size4';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Size4-Regular-3c14ed11dd8eea981c93bf283193856d.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Size4-Regular-726db3bd435c8a6e45e44741dae67263.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Size4-Regular-27901d5ce93d8971c416d9123fedb911.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Typewriter';
+  src: url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular-895baecfbf4ef298fdfe943fb117c15e.woff2) format('woff2'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular-696705de367f02534e8abb38b55af067.woff) format('woff'), url(//cdn2.jianshu.io/assets/_/_/_/_/shared/node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular-6374f53e08c02d7b9ec594e2fb0c5fe8.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.katex-display {
+  display: block;
+  margin: 1em 0;
+  text-align: center;
+}
+
+.katex-display > .katex {
+  display: inline-block;
+  text-align: initial;
+}
+
+.katex {
+  font: normal 1.21em KaTeX_Main, Times New Roman, serif;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-indent: 0;
+  text-rendering: auto;
+}
+
+.katex * {
+  -ms-high-contrast-adjust: none !important;
+}
+
+.katex .katex-html {
+  display: inline-block;
+}
+
+.katex .katex-mathml {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.katex .base {
+  position: relative;
+  display: inline-block;
+}
+
+.katex .strut {
+  display: inline-block;
+}
+
+.katex .textbf {
+  font-weight: bold;
+}
+
+.katex .textit {
+  font-style: italic;
+}
+
+.katex .textrm {
+  font-family: KaTeX_Main;
+}
+
+.katex .textsf {
+  font-family: KaTeX_SansSerif;
+}
+
+.katex .texttt {
+  font-family: KaTeX_Typewriter;
+}
+
+.katex .mathit {
+  font-family: KaTeX_Math;
+  font-style: italic;
+}
+
+.katex .mathrm {
+  font-style: normal;
+}
+
+.katex .mathbf {
+  font-family: KaTeX_Main;
+  font-weight: bold;
+}
+
+.katex .boldsymbol {
+  font-family: KaTeX_Math;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.katex .amsrm {
+  font-family: KaTeX_AMS;
+}
+
+.katex .mathbb {
+  font-family: KaTeX_AMS;
+}
+
+.katex .mathcal {
+  font-family: KaTeX_Caligraphic;
+}
+
+.katex .mathfrak {
+  font-family: KaTeX_Fraktur;
+}
+
+.katex .mathtt {
+  font-family: KaTeX_Typewriter;
+}
+
+.katex .mathscr {
+  font-family: KaTeX_Script;
+}
+
+.katex .mathsf {
+  font-family: KaTeX_SansSerif;
+}
+
+.katex .mainit {
+  font-family: KaTeX_Main;
+  font-style: italic;
+}
+
+.katex .mainrm {
+  font-family: KaTeX_Main;
+  font-style: normal;
+}
+
+.katex .vlist-t {
+  display: inline-table;
+  table-layout: fixed;
+}
+
+.katex .vlist-r {
+  display: table-row;
+}
+
+.katex .vlist {
+  display: table-cell;
+  vertical-align: bottom;
+  position: relative;
+}
+
+.katex .vlist > span {
+  display: block;
+  height: 0;
+  position: relative;
+}
+
+.katex .vlist > span > span {
+  display: inline-block;
+}
+
+.katex .vlist > span > .pstrut {
+  overflow: hidden;
+  width: 0;
+}
+
+.katex .vlist-t2 {
+  margin-right: -2px;
+}
+
+.katex .vlist-s {
+  display: table-cell;
+  vertical-align: bottom;
+  font-size: 1px;
+  width: 2px;
+}
+
+.katex .msupsub {
+  text-align: left;
+}
+
+.katex .mfrac > span > span {
+  text-align: center;
+}
+
+.katex .mfrac .frac-line {
+  display: inline-block;
+  width: 100%;
+}
+
+.katex .mspace {
+  display: inline-block;
+}
+
+.katex .mspace.negativethinspace {
+  margin-left: -0.16667em;
+}
+
+.katex .mspace.muspace {
+  width: 0.055556em;
+}
+
+.katex .mspace.thinspace {
+  width: 0.16667em;
+}
+
+.katex .mspace.negativemediumspace {
+  margin-left: -0.22222em;
+}
+
+.katex .mspace.mediumspace {
+  width: 0.22222em;
+}
+
+.katex .mspace.thickspace {
+  width: 0.27778em;
+}
+
+.katex .mspace.sixmuspace {
+  width: 0.333333em;
+}
+
+.katex .mspace.eightmuspace {
+  width: 0.444444em;
+}
+
+.katex .mspace.enspace {
+  width: 0.5em;
+}
+
+.katex .mspace.twelvemuspace {
+  width: 0.666667em;
+}
+
+.katex .mspace.quad {
+  width: 1em;
+}
+
+.katex .mspace.qquad {
+  width: 2em;
+}
+
+.katex .llap,
+.katex .rlap,
+.katex .clap {
+  width: 0;
+  position: relative;
+}
+
+.katex .llap > .inner,
+.katex .rlap > .inner,
+.katex .clap > .inner {
+  position: absolute;
+}
+
+.katex .llap > .fix,
+.katex .rlap > .fix,
+.katex .clap > .fix {
+  display: inline-block;
+}
+
+.katex .llap > .inner {
+  right: 0;
+}
+
+.katex .rlap > .inner,
+.katex .clap > .inner {
+  left: 0;
+}
+
+.katex .clap > .inner > span {
+  margin-left: -50%;
+  margin-right: 50%;
+}
+
+.katex .rule {
+  display: inline-block;
+  border: solid 0;
+  position: relative;
+}
+
+.katex .overline .overline-line,
+.katex .underline .underline-line {
+  display: inline-block;
+  width: 100%;
+}
+
+.katex .sqrt > .root {
+  margin-left: 0.27777778em;
+  margin-right: -0.55555556em;
+}
+
+.katex .sizing,
+.katex .fontsize-ensurer {
+  display: inline-block;
+}
+
+.katex .sizing.reset-size1.size1,
+.katex .fontsize-ensurer.reset-size1.size1 {
+  font-size: 1em;
+}
+
+.katex .sizing.reset-size1.size2,
+.katex .fontsize-ensurer.reset-size1.size2 {
+  font-size: 1.2em;
+}
+
+.katex .sizing.reset-size1.size3,
+.katex .fontsize-ensurer.reset-size1.size3 {
+  font-size: 1.4em;
+}
+
+.katex .sizing.reset-size1.size4,
+.katex .fontsize-ensurer.reset-size1.size4 {
+  font-size: 1.6em;
+}
+
+.katex .sizing.reset-size1.size5,
+.katex .fontsize-ensurer.reset-size1.size5 {
+  font-size: 1.8em;
+}
+
+.katex .sizing.reset-size1.size6,
+.katex .fontsize-ensurer.reset-size1.size6 {
+  font-size: 2em;
+}
+
+.katex .sizing.reset-size1.size7,
+.katex .fontsize-ensurer.reset-size1.size7 {
+  font-size: 2.4em;
+}
+
+.katex .sizing.reset-size1.size8,
+.katex .fontsize-ensurer.reset-size1.size8 {
+  font-size: 2.88em;
+}
+
+.katex .sizing.reset-size1.size9,
+.katex .fontsize-ensurer.reset-size1.size9 {
+  font-size: 3.456em;
+}
+
+.katex .sizing.reset-size1.size10,
+.katex .fontsize-ensurer.reset-size1.size10 {
+  font-size: 4.148em;
+}
+
+.katex .sizing.reset-size1.size11,
+.katex .fontsize-ensurer.reset-size1.size11 {
+  font-size: 4.976em;
+}
+
+.katex .sizing.reset-size2.size1,
+.katex .fontsize-ensurer.reset-size2.size1 {
+  font-size: 0.83333333em;
+}
+
+.katex .sizing.reset-size2.size2,
+.katex .fontsize-ensurer.reset-size2.size2 {
+  font-size: 1em;
+}
+
+.katex .sizing.reset-size2.size3,
+.katex .fontsize-ensurer.reset-size2.size3 {
+  font-size: 1.16666667em;
+}
+
+.katex .sizing.reset-size2.size4,
+.katex .fontsize-ensurer.reset-size2.size4 {
+  font-size: 1.33333333em;
+}
+
+.katex .sizing.reset-size2.size5,
+.katex .fontsize-ensurer.reset-size2.size5 {
+  font-size: 1.5em;
+}
+
+.katex .sizing.reset-size2.size6,
+.katex .fontsize-ensurer.reset-size2.size6 {
+  font-size: 1.66666667em;
+}
+
+.katex .sizing.reset-size2.size7,
+.katex .fontsize-ensurer.reset-size2.size7 {
+  font-size: 2em;
+}
+
+.katex .sizing.reset-size2.size8,
+.katex .fontsize-ensurer.reset-size2.size8 {
+  font-size: 2.4em;
+}
+
+.katex .sizing.reset-size2.size9,
+.katex .fontsize-ensurer.reset-size2.size9 {
+  font-size: 2.88em;
+}
+
+.katex .sizing.reset-size2.size10,
+.katex .fontsize-ensurer.reset-size2.size10 {
+  font-size: 3.45666667em;
+}
+
+.katex .sizing.reset-size2.size11,
+.katex .fontsize-ensurer.reset-size2.size11 {
+  font-size: 4.14666667em;
+}
+
+.katex .sizing.reset-size3.size1,
+.katex .fontsize-ensurer.reset-size3.size1 {
+  font-size: 0.71428571em;
+}
+
+.katex .sizing.reset-size3.size2,
+.katex .fontsize-ensurer.reset-size3.size2 {
+  font-size: 0.85714286em;
+}
+
+.katex .sizing.reset-size3.size3,
+.katex .fontsize-ensurer.reset-size3.size3 {
+  font-size: 1em;
+}
+
+.katex .sizing.reset-size3.size4,
+.katex .fontsize-ensurer.reset-size3.size4 {
+  font-size: 1.14285714em;
+}
+
+.katex .sizing.reset-size3.size5,
+.katex .fontsize-ensurer.reset-size3.size5 {
+  font-size: 1.28571429em;
+}
+
+.katex .sizing.reset-size3.size6,
+.katex .fontsize-ensurer.reset-size3.size6 {
+  font-size: 1.42857143em;
+}
+
+.katex .sizing.reset-size3.size7,
+.katex .fontsize-ensurer.reset-size3.size7 {
+  font-size: 1.71428571em;
+}
+
+.katex .sizing.reset-size3.size8,
+.katex .fontsize-ensurer.reset-size3.size8 {
+  font-size: 2.05714286em;
+}
+
+.katex .sizing.reset-size3.size9,
+.katex .fontsize-ensurer.reset-size3.size9 {
+  font-size: 2.46857143em;
+}
+
+.katex .sizing.reset-size3.size10,
+.katex .fontsize-ensurer.reset-size3.size10 {
+  font-size: 2.96285714em;
+}
+
+.katex .sizing.reset-size3.size11,
+.katex .fontsize-ensurer.reset-size3.size11 {
+  font-size: 3.55428571em;
+}
+
+.katex .sizing.reset-size4.size1,
+.katex .fontsize-ensurer.reset-size4.size1 {
+  font-size: 0.625em;
+}
+
+.katex .sizing.reset-size4.size2,
+.katex .fontsize-ensurer.reset-size4.size2 {
+  font-size: 0.75em;
+}
+
+.katex .sizing.reset-size4.size3,
+.katex .fontsize-ensurer.reset-size4.size3 {
+  font-size: 0.875em;
+}
+
+.katex .sizing.reset-size4.size4,
+.katex .fontsize-ensurer.reset-size4.size4 {
+  font-size: 1em;
+}
+
+.katex .sizing.reset-size4.size5,
+.katex .fontsize-ensurer.reset-size4.size5 {
+  font-size: 1.125em;
+}
+
+.katex .sizing.reset-size4.size6,
+.katex .fontsize-ensurer.reset-size4.size6 {
+  font-size: 1.25em;
+}
+
+.katex .sizing.reset-size4.size7,
+.katex .fontsize-ensurer.reset-size4.size7 {
+  font-size: 1.5em;
+}
+
+.katex .sizing.reset-size4.size8,
+.katex .fontsize-ensurer.reset-size4.size8 {
+  font-size: 1.8em;
+}
+
+.katex .sizing.reset-size4.size9,
+.katex .fontsize-ensurer.reset-size4.size9 {
+  font-size: 2.16em;
+}
+
+.katex .sizing.reset-size4.size10,
+.katex .fontsize-ensurer.reset-size4.size10 {
+  font-size: 2.5925em;
+}
+
+.katex .sizing.reset-size4.size11,
+.katex .fontsize-ensurer.reset-size4.size11 {
+  font-size: 3.11em;
+}
+
+.katex .sizing.reset-size5.size1,
+.katex .fontsize-ensurer.reset-size5.size1 {
+  font-size: 0.55555556em;
+}
+
+.katex .sizing.reset-size5.size2,
+.katex .fontsize-ensurer.reset-size5.size2 {
+  font-size: 0.66666667em;
+}
+
+.katex .sizing.reset-size5.size3,
+.katex .fontsize-ensurer.reset-size5.size3 {
+  font-size: 0.77777778em;
+}
+
+.katex .sizing.reset-size5.size4,
+.katex .fontsize-ensurer.reset-size5.size4 {
+  font-size: 0.88888889em;
+}
+
+.katex .sizing.reset-size5.size5,
+.katex .fontsize-ensurer.reset-size5.size5 {
+  font-size: 1em;
+}
+
+.katex .sizing.reset-size5.size6,
+.katex .fontsize-ensurer.reset-size5.size6 {
+  font-size: 1.11111111em;
+}
+
+.katex .sizing.reset-size5.size7,
+.katex .fontsize-ensurer.reset-size5.size7 {
+  font-size: 1.33333333em;
+}
+
+.katex .sizing.reset-size5.size8,
+.katex .fontsize-ensurer.reset-size5.size8 {
+  font-size: 1.6em;
+}
+
+.katex .sizing.reset-size5.size9,
+.katex .fontsize-ensurer.reset-size5.size9 {
+  font-size: 1.92em;
+}
+
+.katex .sizing.reset-size5.size10,
+.katex .fontsize-ensurer.reset-size5.size10 {
+  font-size: 2.30444444em;
+}
+
+.katex .sizing.reset-size5.size11,
+.katex .fontsize-ensurer.reset-size5.size11 {
+  font-size: 2.76444444em;
+}
+
+.katex .sizing.reset-size6.size1,
+.katex .fontsize-ensurer.reset-size6.size1 {
+  font-size: 0.5em;
+}
+
+.katex .sizing.reset-size6.size2,
+.katex .fontsize-ensurer.reset-size6.size2 {
+  font-size: 0.6em;
+}
+
+.katex .sizing.reset-size6.size3,
+.katex .fontsize-ensurer.reset-size6.size3 {
+  font-size: 0.7em;
+}
+
+.katex .sizing.reset-size6.size4,
+.katex .fontsize-ensurer.reset-size6.size4 {
+  font-size: 0.8em;
+}
+
+.katex .sizing.reset-size6.size5,
+.katex .fontsize-ensurer.reset-size6.size5 {
+  font-size: 0.9em;
+}
+
+.katex .sizing.reset-size6.size6,
+.katex .fontsize-ensurer.reset-size6.size6 {
+  font-size: 1em;
+}
+
+.katex .sizing.reset-size6.size7,
+.katex .fontsize-ensurer.reset-size6.size7 {
+  font-size: 1.2em;
+}
+
+.katex .sizing.reset-size6.size8,
+.katex .fontsize-ensurer.reset-size6.size8 {
+  font-size: 1.44em;
+}
+
+.katex .sizing.reset-size6.size9,
+.katex .fontsize-ensurer.reset-size6.size9 {
+  font-size: 1.728em;
+}
+
+.katex .sizing.reset-size6.size10,
+.katex .fontsize-ensurer.reset-size6.size10 {
+  font-size: 2.074em;
+}
+
+.katex .sizing.reset-size6.size11,
+.katex .fontsize-ensurer.reset-size6.size11 {
+  font-size: 2.488em;
+}
+
+.katex .sizing.reset-size7.size1,
+.katex .fontsize-ensurer.reset-size7.size1 {
+  font-size: 0.41666667em;
+}
+
+.katex .sizing.reset-size7.size2,
+.katex .fontsize-ensurer.reset-size7.size2 {
+  font-size: 0.5em;
+}
+
+.katex .sizing.reset-size7.size3,
+.katex .fontsize-ensurer.reset-size7.size3 {
+  font-size: 0.58333333em;
+}
+
+.katex .sizing.reset-size7.size4,
+.katex .fontsize-ensurer.reset-size7.size4 {
+  font-size: 0.66666667em;
+}
+
+.katex .sizing.reset-size7.size5,
+.katex .fontsize-ensurer.reset-size7.size5 {
+  font-size: 0.75em;
+}
+
+.katex .sizing.reset-size7.size6,
+.katex .fontsize-ensurer.reset-size7.size6 {
+  font-size: 0.83333333em;
+}
+
+.katex .sizing.reset-size7.size7,
+.katex .fontsize-ensurer.reset-size7.size7 {
+  font-size: 1em;
+}
+
+.katex .sizing.reset-size7.size8,
+.katex .fontsize-ensurer.reset-size7.size8 {
+  font-size: 1.2em;
+}
+
+.katex .sizing.reset-size7.size9,
+.katex .fontsize-ensurer.reset-size7.size9 {
+  font-size: 1.44em;
+}
+
+.katex .sizing.reset-size7.size10,
+.katex .fontsize-ensurer.reset-size7.size10 {
+  font-size: 1.72833333em;
+}
+
+.katex .sizing.reset-size7.size11,
+.katex .fontsize-ensurer.reset-size7.size11 {
+  font-size: 2.07333333em;
+}
+
+.katex .sizing.reset-size8.size1,
+.katex .fontsize-ensurer.reset-size8.size1 {
+  font-size: 0.34722222em;
+}
+
+.katex .sizing.reset-size8.size2,
+.katex .fontsize-ensurer.reset-size8.size2 {
+  font-size: 0.41666667em;
+}
+
+.katex .sizing.reset-size8.size3,
+.katex .fontsize-ensurer.reset-size8.size3 {
+  font-size: 0.48611111em;
+}
+
+.katex .sizing.reset-size8.size4,
+.katex .fontsize-ensurer.reset-size8.size4 {
+  font-size: 0.55555556em;
+}
+
+.katex .sizing.reset-size8.size5,
+.katex .fontsize-ensurer.reset-size8.size5 {
+  font-size: 0.625em;
+}
+
+.katex .sizing.reset-size8.size6,
+.katex .fontsize-ensurer.reset-size8.size6 {
+  font-size: 0.69444444em;
+}
+
+.katex .sizing.reset-size8.size7,
+.katex .fontsize-ensurer.reset-size8.size7 {
+  font-size: 0.83333333em;
+}
+
+.katex .sizing.reset-size8.size8,
+.katex .fontsize-ensurer.reset-size8.size8 {
+  font-size: 1em;
+}
+
+.katex .sizing.reset-size8.size9,
+.katex .fontsize-ensurer.reset-size8.size9 {
+  font-size: 1.2em;
+}
+
+.katex .sizing.reset-size8.size10,
+.katex .fontsize-ensurer.reset-size8.size10 {
+  font-size: 1.44027778em;
+}
+
+.katex .sizing.reset-size8.size11,
+.katex .fontsize-ensurer.reset-size8.size11 {
+  font-size: 1.72777778em;
+}
+
+.katex .sizing.reset-size9.size1,
+.katex .fontsize-ensurer.reset-size9.size1 {
+  font-size: 0.28935185em;
+}
+
+.katex .sizing.reset-size9.size2,
+.katex .fontsize-ensurer.reset-size9.size2 {
+  font-size: 0.34722222em;
+}
+
+.katex .sizing.reset-size9.size3,
+.katex .fontsize-ensurer.reset-size9.size3 {
+  font-size: 0.40509259em;
+}
+
+.katex .sizing.reset-size9.size4,
+.katex .fontsize-ensurer.reset-size9.size4 {
+  font-size: 0.46296296em;
+}
+
+.katex .sizing.reset-size9.size5,
+.katex .fontsize-ensurer.reset-size9.size5 {
+  font-size: 0.52083333em;
+}
+
+.katex .sizing.reset-size9.size6,
+.katex .fontsize-ensurer.reset-size9.size6 {
+  font-size: 0.5787037em;
+}
+
+.katex .sizing.reset-size9.size7,
+.katex .fontsize-ensurer.reset-size9.size7 {
+  font-size: 0.69444444em;
+}
+
+.katex .sizing.reset-size9.size8,
+.katex .fontsize-ensurer.reset-size9.size8 {
+  font-size: 0.83333333em;
+}
+
+.katex .sizing.reset-size9.size9,
+.katex .fontsize-ensurer.reset-size9.size9 {
+  font-size: 1em;
+}
+
+.katex .sizing.reset-size9.size10,
+.katex .fontsize-ensurer.reset-size9.size10 {
+  font-size: 1.20023148em;
+}
+
+.katex .sizing.reset-size9.size11,
+.katex .fontsize-ensurer.reset-size9.size11 {
+  font-size: 1.43981481em;
+}
+
+.katex .sizing.reset-size10.size1,
+.katex .fontsize-ensurer.reset-size10.size1 {
+  font-size: 0.24108004em;
+}
+
+.katex .sizing.reset-size10.size2,
+.katex .fontsize-ensurer.reset-size10.size2 {
+  font-size: 0.28929605em;
+}
+
+.katex .sizing.reset-size10.size3,
+.katex .fontsize-ensurer.reset-size10.size3 {
+  font-size: 0.33751205em;
+}
+
+.katex .sizing.reset-size10.size4,
+.katex .fontsize-ensurer.reset-size10.size4 {
+  font-size: 0.38572806em;
+}
+
+.katex .sizing.reset-size10.size5,
+.katex .fontsize-ensurer.reset-size10.size5 {
+  font-size: 0.43394407em;
+}
+
+.katex .sizing.reset-size10.size6,
+.katex .fontsize-ensurer.reset-size10.size6 {
+  font-size: 0.48216008em;
+}
+
+.katex .sizing.reset-size10.size7,
+.katex .fontsize-ensurer.reset-size10.size7 {
+  font-size: 0.57859209em;
+}
+
+.katex .sizing.reset-size10.size8,
+.katex .fontsize-ensurer.reset-size10.size8 {
+  font-size: 0.69431051em;
+}
+
+.katex .sizing.reset-size10.size9,
+.katex .fontsize-ensurer.reset-size10.size9 {
+  font-size: 0.83317261em;
+}
+
+.katex .sizing.reset-size10.size10,
+.katex .fontsize-ensurer.reset-size10.size10 {
+  font-size: 1em;
+}
+
+.katex .sizing.reset-size10.size11,
+.katex .fontsize-ensurer.reset-size10.size11 {
+  font-size: 1.19961427em;
+}
+
+.katex .sizing.reset-size11.size1,
+.katex .fontsize-ensurer.reset-size11.size1 {
+  font-size: 0.20096463em;
+}
+
+.katex .sizing.reset-size11.size2,
+.katex .fontsize-ensurer.reset-size11.size2 {
+  font-size: 0.24115756em;
+}
+
+.katex .sizing.reset-size11.size3,
+.katex .fontsize-ensurer.reset-size11.size3 {
+  font-size: 0.28135048em;
+}
+
+.katex .sizing.reset-size11.size4,
+.katex .fontsize-ensurer.reset-size11.size4 {
+  font-size: 0.32154341em;
+}
+
+.katex .sizing.reset-size11.size5,
+.katex .fontsize-ensurer.reset-size11.size5 {
+  font-size: 0.36173633em;
+}
+
+.katex .sizing.reset-size11.size6,
+.katex .fontsize-ensurer.reset-size11.size6 {
+  font-size: 0.40192926em;
+}
+
+.katex .sizing.reset-size11.size7,
+.katex .fontsize-ensurer.reset-size11.size7 {
+  font-size: 0.48231511em;
+}
+
+.katex .sizing.reset-size11.size8,
+.katex .fontsize-ensurer.reset-size11.size8 {
+  font-size: 0.57877814em;
+}
+
+.katex .sizing.reset-size11.size9,
+.katex .fontsize-ensurer.reset-size11.size9 {
+  font-size: 0.69453376em;
+}
+
+.katex .sizing.reset-size11.size10,
+.katex .fontsize-ensurer.reset-size11.size10 {
+  font-size: 0.83360129em;
+}
+
+.katex .sizing.reset-size11.size11,
+.katex .fontsize-ensurer.reset-size11.size11 {
+  font-size: 1em;
+}
+
+.katex .delimsizing.size1 {
+  font-family: KaTeX_Size1;
+}
+
+.katex .delimsizing.size2 {
+  font-family: KaTeX_Size2;
+}
+
+.katex .delimsizing.size3 {
+  font-family: KaTeX_Size3;
+}
+
+.katex .delimsizing.size4 {
+  font-family: KaTeX_Size4;
+}
+
+.katex .delimsizing.mult .delim-size1 > span {
+  font-family: KaTeX_Size1;
+}
+
+.katex .delimsizing.mult .delim-size4 > span {
+  font-family: KaTeX_Size4;
+}
+
+.katex .nulldelimiter {
+  display: inline-block;
+  width: 0.12em;
+}
+
+.katex .delimcenter {
+  position: relative;
+}
+
+.katex .op-symbol {
+  position: relative;
+}
+
+.katex .op-symbol.small-op {
+  font-family: KaTeX_Size1;
+}
+
+.katex .op-symbol.large-op {
+  font-family: KaTeX_Size2;
+}
+
+.katex .op-limits > .vlist-t {
+  text-align: center;
+}
+
+.katex .accent > .vlist-t {
+  text-align: center;
+}
+
+.katex .accent .accent-body {
+  width: 0;
+  position: relative;
+}
+
+.katex .overlay {
+  display: block;
+}
+
+.katex .mtable .vertical-separator {
+  display: inline-block;
+  margin: 0 -0.125em;
+  width: 0.25em;
+}
+
+.katex .mtable .arraycolsep {
+  display: inline-block;
+}
+
+.katex .mtable .col-align-c > .vlist-t {
+  text-align: center;
+}
+
+.katex .mtable .col-align-l > .vlist-t {
+  text-align: left;
+}
+
+.katex .mtable .col-align-r > .vlist-t {
+  text-align: right;
+}
+
+.katex .svg-align {
+  text-align: left;
+}
+
+.katex svg {
+  display: block;
+  position: absolute;
+  width: 100%;
+  fill: currentColor;
+  stroke: currentColor;
+  fill-rule: nonzero;
+  fill-opacity: 1;
+  stroke-width: 1;
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
+  stroke-miterlimit: 4;
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+  stroke-opacity: 1;
+}
+
+.katex svg path {
+  stroke: none;
+}
+
+.katex .vertical-separator svg {
+  width: 0.25em;
+}
+
+.katex .stretchy {
+  width: 100%;
+  display: block;
+}
+
+.katex .stretchy:before,
+.katex .stretchy:after {
+  content: "";
+}
+
+.katex .hide-tail {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.katex .halfarrow-left {
+  position: absolute;
+  left: 0;
+  width: 50.1%;
+  overflow: hidden;
+}
+
+.katex .halfarrow-right {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  overflow: hidden;
+}
+
+.katex .brace-left {
+  position: absolute;
+  left: 0;
+  width: 25.1%;
+  overflow: hidden;
+}
+
+.katex .brace-center {
+  position: absolute;
+  left: 25%;
+  width: 50%;
+  overflow: hidden;
+}
+
+.katex .brace-right {
+  position: absolute;
+  right: 0;
+  width: 25.1%;
+  overflow: hidden;
+}
+
+.katex .x-arrow-pad {
+  padding: 0 0.5em;
+}
+
+.katex .x-arrow,
+.katex .mover,
+.katex .munder {
+  text-align: center;
+}
+
+.katex .boxpad {
+  padding: 0 0.3em 0 0.3em;
+}
+
+.katex .fbox {
+  box-sizing: border-box;
+  border: 0.04em solid black;
+}
+
+.katex .fcolorbox {
+  box-sizing: border-box;
+  border: 0.04em solid;
+}
+
+.katex .cancel-pad {
+  padding: 0 0.2em 0 0.2em;
+}
+
+.katex .mord + .cancel-lap,
+.katex .mbin + .cancel-lap {
+  margin-left: -0.2em;
+}
+
+.katex .cancel-lap + .mord,
+.katex .cancel-lap + .mbin,
+.katex .cancel-lap + .msupsub {
+  margin-left: -0.2em;
+}
+
+.katex .sout {
+  border-bottom-style: solid;
+  border-bottom-width: 0.08em;
+}</style><style type="text/css">
+#free-reward-panel .reward-users-modal main {
+  padding: 0;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.reward-note-modal .v-modal {
+  width: 620px;
+  text-align: center;
+}
+.reward-note-modal .v-modal form {
+    margin: 0 auto 25px auto;
+    padding: 0 40px;
+}
+.reward-note-modal .v-modal .reward-intro {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.reward-note-modal .v-modal .reward-intro .avatar {
+      cursor: default !important;
+      width: 36px;
+      height: 36px;
+      margin-right: 10px;
+      display: inline-block;
+}
+.reward-note-modal .v-modal .reward-intro .intro {
+      margin-right: 5px;
+      font-weight: bold;
+      vertical-align: middle;
+}
+.reward-note-modal .v-modal .reward-intro i {
+      color: #EA6F5A;
+      vertical-align: middle;
+}
+.reward-note-modal .v-modal .main-inputs {
+    margin: 25px 0;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group {
+      margin: 0 -5px;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group input {
+        display: none;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group input:checked + .option {
+        color: #EA6F5A;
+        border-color: #EA6F5A;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .custom-amount:checked + .option .custom-text {
+        opacity: 0;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .custom-amount:checked + .option .custom-amount-input {
+        opacity: 1;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option {
+        position: relative;
+        margin: 0 5px 15px;
+        width: 156px;
+        height: 56px;
+        line-height: 54px;
+        border: 1px solid #E6E6E6;
+        border-radius: 4px;
+        font-weight: normal;
+        color: #999999;
+        cursor: pointer;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option i {
+          font-size: 16px;
+          vertical-align: middle;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .amount {
+          font-size: 28px;
+          vertical-align: middle;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .piece {
+          font-size: 13px;
+          vertical-align: sub;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input {
+          position: absolute;
+          top: 0;
+          z-index: -1;
+          width: 100%;
+          opacity: 0;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input i {
+            position: absolute;
+            top: 0;
+            left: 10px;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input .piece {
+            position: absolute;
+            top: 4px;
+            right: 10px;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input input {
+            display: block;
+            margin: 0 auto;
+            width: 80px;
+            height: 54px;
+            line-height: 54px;
+            border: none;
+            font-size: 28px;
+            text-align: center;
+            background: transparent;
+            -moz-appearance: textfield;
+}
+.reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input input::-webkit-outer-spin-button, .reward-note-modal .v-modal .main-inputs .amount-group .option .custom-amount-input input::-webkit-inner-spin-button {
+              -webkit-appearance: none !important;
+}
+.reward-note-modal .v-modal .main-inputs .message {
+      padding: 15px 20px;
+      margin-bottom: 0;
+      font-size: 14px;
+      border: 1px solid #E6E6E6;
+      color: #333333;
+      border-radius: 4px;
+      background-color: rgba(180, 180, 180, 0.1);
+}
+.reward-note-modal .v-modal .main-inputs .message textarea {
+        width: 100%;
+        height: 44px;
+        padding: 0;
+        margin: 0;
+        resize: none;
+        background: none !important;
+        border: none !important;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        -webkit-box-shadow: none;
+                box-shadow: none;
+}
+.reward-note-modal .v-modal .main-inputs .message textarea:focus {
+          outline: none;
+}
+.reward-note-modal .v-modal .reward-info .amount {
+    font-size: 28px;
+    font-weight: bold;
+    color: #EA6F5A;
+}
+.reward-note-modal .v-modal .reward-info .pay-method {
+    font-size: 14px;
+}
+.reward-note-modal .v-modal .reward-info .pay-method a {
+      color: #3194D0;
+}
+.reward-note-modal .v-modal .choose-pay {
+    margin: 0 -5px;
+}
+.reward-note-modal .v-modal .choose-pay input {
+      display: none;
+}
+.reward-note-modal .v-modal .choose-pay input:checked + .option {
+      color: #EA6F5A;
+      border-color: #EA6F5A;
+}
+.reward-note-modal .v-modal .choose-pay .option {
+      margin: 20px 5px 10px;
+      width: 156px;
+      height: 56px;
+      line-height: 54px;
+      text-align: center;
+      border: 1px solid #E6E6E6;
+      border-radius: 4px;
+      cursor: pointer;
+}
+.reward-note-modal .v-modal .choose-pay .option img {
+        height: 30px;
+}
+.reward-note-modal .v-modal .choose-pay .option img.day.alipay, .reward-note-modal .v-modal .choose-pay .option img.night.alipay {
+        min-width: 85px;
+}
+.reward-note-modal .v-modal .choose-pay .option img.day.wechat, .reward-note-modal .v-modal .choose-pay .option img.night.wechat {
+        min-width: 112px;
+}
+.reward-note-modal .v-modal .choose-pay .option img.night {
+        display: none;
+}
+.reward-note-modal .v-modal .choose-pay .tooltip {
+      width: 230px;
+}
+.reward-note-modal .v-modal .modal-footer {
+    padding: 0 15px 20px;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+}
+.reward-note-modal .v-modal .modal-footer .btn {
+      padding: 8px 45px;
+      font-size: 24px;
+}
+.reward-note-modal .v-modal .btn-pay {
+    padding: 8px 25px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #F5A623;
+}
+.weixin-pay, .success-pay {
+  text-align: center;
+}
+.weixin-pay .v-modal, .success-pay .v-modal {
+    width: 350px;
+}
+.weixin-pay .ic-successed, .success-pay .ic-successed {
+    font-size: 60px;
+    color: #3db922;
+}
+.weixin-pay h2, .weixin-pay h3, .success-pay h2, .success-pay h3 {
+    margin-bottom: 20px;
+    color: #333333;
+}
+.weixin-pay h2, .success-pay h2 {
+    margin: 0 0 40px 0;
+    font-size: 24px;
+}
+.weixin-pay .bind-text, .success-pay .bind-text {
+    position: relative;
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #999999;
+}
+.weixin-pay .bind-text:before, .weixin-pay .bind-text:after, .success-pay .bind-text:before, .success-pay .bind-text:after {
+      content: "";
+      border-top: 1px solid #999;
+      display: block;
+      position: absolute;
+      width: 40px;
+      top: 8px;
+}
+.weixin-pay .bind-text:before, .success-pay .bind-text:before {
+      left: 30px;
+}
+.weixin-pay .bind-text:after, .success-pay .bind-text:after {
+      right: 30px;
+}
+.weixin-pay .share-bind, .success-pay .share-bind {
+    display: block;
+    margin-bottom: 30px;
+}
+.weixin-pay .share-bind i, .success-pay .share-bind i {
+      margin-right: 4px;
+      font-size: 22px;
+      vertical-align: middle;
+}
+.weixin-pay .share-bind.wechat i, .success-pay .share-bind.wechat i {
+      color: #00BB29;
+}
+.weixin-pay .share-bind.weibo i, .success-pay .share-bind.weibo i {
+      color: #E05244;
+}
+.weixin-pay .wx-qr-code, .success-pay .wx-qr-code {
+    display: inline-block;
+}
+.weixin-pay .wx-qr-code img, .success-pay .wx-qr-code img {
+      margin: 0 auto;
+      padding: 10px;
+      width: 200px;
+      background-color: #ffffff;
+}
+.weixin-pay .pay-amount, .success-pay .pay-amount {
+    margin: 20px 0;
+    color: #787878;
+}
+.weixin-pay .pay-amount span, .success-pay .pay-amount span {
+      color: #F5A623;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.v-modal-wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-color: transparent;
+}
+.v-modal-wrap.modal-leave-active {
+    -webkit-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+.v-modal-wrap.modal-enter-active .v-modal-mask, .v-modal-wrap.modal-leave-active .v-modal-mask {
+    opacity: 0;
+}
+.v-modal-wrap.modal-enter-active .v-modal, .v-modal-wrap.modal-leave-active .v-modal {
+    -webkit-transform: translate(-50%, -70%);
+        -ms-transform: translate(-50%, -70%);
+            transform: translate(-50%, -70%);
+    opacity: 0;
+}
+.v-modal-wrap .v-modal-mask {
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    opacity: 1;
+}
+.v-modal-wrap .v-modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    -webkit-box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, -webkit-transform 0.3s;
+    -o-transition: opacity 0.3s, transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
+    opacity: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    overflow: hidden;
+}
+.v-modal-wrap .v-modal > header:before, .v-modal-wrap .v-modal > header:after, .v-modal-wrap .v-modal > main:before, .v-modal-wrap .v-modal > main:after, .v-modal-wrap .v-modal > footer:before, .v-modal-wrap .v-modal > footer:after {
+      content: '';
+      clear: both;
+      display: table;
+}
+.v-modal-wrap .v-modal > header {
+      padding: 20px;
+      border-bottom: 1px solid #F0F0F0;
+}
+.v-modal-wrap .v-modal > header h4 {
+        margin: 0;
+        color: #333;
+        text-align: left;
+}
+.v-modal-wrap .v-modal .close {
+      position: absolute;
+      right: 16px;
+      top: 20px;
+      font-size: 26px;
+      line-height: 20px;
+      color: rgba(0, 0, 0, 0.8);
+}
+.v-modal-wrap .v-modal .close:hover {
+        color: #000000;
+}
+.v-modal-wrap .v-modal > main {
+      padding: 20px 20px 20px 20px;
+      font-size: 15px;
+      color: #333;
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      overflow-x: hidden;
+      overflow-y: auto;
+}
+.v-modal-wrap .v-modal > footer {
+      padding: 20px;
+      background-color: #fff;
+}
+.v-modal-wrap .v-modal > footer button {
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
+        border: 0;
+        float: right;
+}
+.v-modal-wrap .v-modal > footer button:focus {
+          outline: 0;
+}
+.v-modal-wrap .v-modal > footer .submit {
+        padding: 4px 12px;
+        border: 1px solid;
+        border-radius: 20px;
+}
+.v-modal-wrap .v-modal > footer .cancel {
+        margin-top: 5px;
+}
+.v-modal-wrap .v-modal > footer .cancel:hover {
+          color: #333333;
+}
+.reader-night-mode .v-modal-wrap .v-modal-mask {
+  background-color: rgba(63, 63, 63, 0.7);
+}
+.reader-night-mode .v-modal-wrap .v-modal {
+  background-color: #3f3f3f;
+}
+.reader-night-mode .v-modal-wrap .v-modal header {
+    border-color: #2F2F2F;
+}
+.reader-night-mode .v-modal-wrap .v-modal header h4 {
+      color: #C8C8C8;
+}
+.reader-night-mode .v-modal-wrap .v-modal .close {
+    color: #C8C8C8;
+}
+.reader-night-mode .v-modal-wrap .v-modal .close:hover {
+      color: #ffffff;
+}
+.reader-night-mode .v-modal-wrap .v-modal main {
+    color: #C8C8C8;
+}
+.reader-night-mode .v-modal-wrap .v-modal footer {
+    background-color: #3f3f3f;
+}
+.reader-night-mode .v-modal-wrap .v-modal footer .cancel:hover {
+      color: #C8C8C8;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.like[data-v-6ddd02c6] {
+  display: inline-block;
+}
+.like .like-group[data-v-6ddd02c6] {
+    position: relative;
+    padding: 13px 0 15px 0;
+    font-size: 0;
+    border: 1px solid #EA6F5A;
+    border-radius: 40px;
+}
+.like .like-group[data-v-6ddd02c6]:hover {
+      background-color: rgba(236, 97, 73, 0.05);
+}
+.like .like-group .btn-like[data-v-6ddd02c6] {
+      display: inline-block;
+      font-size: 19px;
+}
+.like .like-group .btn-like[data-v-6ddd02c6]:before {
+        content: '';
+        position: absolute;
+        left: 12px;
+        top: 2px;
+        width: 50px;
+        height: 50px;
+        background-image: url(//cdn2.jianshu.io/assets/web/like_animation_steps-62a00a7b52377d3069927cdb8e61fd34.png);
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: 1000px 50px;
+}
+.like .like-group .btn-like a[data-v-6ddd02c6] {
+        position: relative;
+        padding: 18px 30px 18px 55px;
+        color: #EA6F5A;
+}
+.like .like-group .modal-wrap[data-v-6ddd02c6] {
+      font-size: 18px;
+      border-left: 1px solid rgba(236, 97, 73, 0.4);
+      display: inline-block;
+      margin-left: -15px;
+}
+.like .like-group .modal-wrap a[data-v-6ddd02c6] {
+        color: #EA6F5A;
+        padding: 18px 26px 18px 18px;
+}
+.like .like-group.like-animation[data-v-6ddd02c6], .like .like-group.active[data-v-6ddd02c6] {
+      background-color: #EA6F5A;
+}
+.like .like-group.like-animation .btn-like a[data-v-6ddd02c6], .like .like-group.active .btn-like a[data-v-6ddd02c6] {
+        color: white;
+}
+.like .like-group.like-animation .modal-wrap[data-v-6ddd02c6], .like .like-group.active .modal-wrap[data-v-6ddd02c6] {
+        border-left: 1px solid white;
+}
+.like .like-group.like-animation .modal-wrap a[data-v-6ddd02c6], .like .like-group.active .modal-wrap a[data-v-6ddd02c6] {
+          color: white;
+}
+.like .like-group.like-animation .btn-like[data-v-6ddd02c6]:before {
+      -webkit-animation: likeBlast-data-v-6ddd02c6 0.6s 1 steps(19);
+              animation: likeBlast-data-v-6ddd02c6 0.6s 1 steps(19);
+      background-position: right;
+}
+@-webkit-keyframes likeBlast {
+0% {
+    background-position: left;
+}
+100% {
+    background-position: right;
+}
+}
+@keyframes likeBlast-data-v-6ddd02c6 {
+0% {
+    background-position: left;
+}
+100% {
+    background-position: right;
+}
+}
+.like .like-group.active .btn-like[data-v-6ddd02c6]:before {
+      background-position: right;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.main {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 0 30px 0;
+  width: 620px;
+}
+.main .title {
+    padding-left: 8px;
+    border-left: 3px solid #EA6F5A;
+    line-height: 1;
+    font-size: 15px;
+}
+.main .collection-settings {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    font-size: 13px;
+    color: #A0A0A0;
+}
+.main .collection-settings span {
+      padding-left: 4px;
+}
+.main .include-collection {
+    width: 100%;
+    padding-top: 20px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+.main .include-collection .item {
+      display: inline-block;
+      margin: 0 12px 12px 0;
+      min-height: 32px;
+      background-color: white;
+      border: 1px solid #DCDCDC;
+      border-radius: 4px;
+      vertical-align: top;
+      overflow: hidden;
+}
+.main .include-collection .item img {
+        width: 32px;
+        height: 32px;
+}
+.main .include-collection .item .name {
+        display: inline-block;
+        padding: 0 10px;
+        font-size: 14px;
+}
+.main .include-collection .add-collection-wrap {
+      margin: 0 12px 12px 0;
+}
+.main .include-collection .add-collection {
+      padding: 8px 12px;
+      font-size: 14px;
+      border: 1px solid #DCDCDC;
+      border-radius: 4px;
+}
+.main .include-collection .add-collection i {
+        margin-right: 4px;
+        color: #969696;
+}
+.main .recommend-note a {
+    position: relative;
+    margin: 20px 2px 0 0;
+    width: 200px;
+    height: 160px;
+    display: inline-block;
+}
+.main .recommend-note a:after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 160px;
+      border-radius: 0 0 4px 4px;
+      -webkit-box-shadow: inset 0px -80px 50px -22px rgba(0, 0, 0, 0.6);
+              box-shadow: inset 0px -80px 50px -22px rgba(0, 0, 0, 0.6);
+      top: 0;
+      left: 0;
+      z-index: 1;
+}
+.main .recommend-note .name {
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    right: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+    z-index: 2;
+}
+.main .recommend-note .author {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    z-index: 2;
+}
+.main .recommend-note .avatar {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+.main .recommend-note .avatar img {
+      border-radius: 50%;
+}
+.main .recommend-note .author-name {
+    font-size: 12px;
+    color: #ffffff;
+    display: inline-block;
+    vertical-align: -1px;
+}
+.main .show-more {
+    margin: 0 12px 12px 0;
+    font-size: 14px;
+    color: #A0A0A0;
+}
+</style></head>
+
+  <body class="reader-black-font" lang="zh-CN">
+    <!-- 全局顶部导航栏 -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="width-limit">
+    <!-- 左上方 Logo -->
+    <a class="logo" href="https://www.jianshu.com/"><img src="h5_files/nav-logo-4c7bbafe27adc892f3046e6978459bac.png" alt="Nav logo"></a>
+
+    <!-- 右上角 -->
+      <!-- 未登录显示登录/注册/写文章 -->
+      <a class="btn write-btn" target="_blank" href="https://www.jianshu.com/writer#/">
+        <i class="iconfont ic-write"></i>写文章
+</a>      <a class="btn sign-up" href="https://www.jianshu.com/sign_up">注册</a>
+      <a class="btn log-in" href="https://www.jianshu.com/sign_in">登录</a>
+
+    <!-- 如果用户登录，显示下拉菜单 -->
+
+    <div class="style-mode"><a class="style-mode-btn"><i class="iconfont ic-navigation-mode"></i></a> <div class="popover-modal" style="left: 0px; display: none;"><div class="meta"><i class="iconfont ic-navigation-night"></i><span>夜间模式</span></div> <div class="switch day-night-group"><a class="switch-btn">开</a> <a class="switch-btn active">关</a></div> <hr> <div class="switch font-family-group"><a class="switch-btn font-song">宋体</a> <a class="switch-btn font-hei active">黑体</a></div> <div class="switch"><a class="switch-btn active">简</a> <a class="switch-btn">繁</a></div></div></div>
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="nav navbar-nav">
+            <li class="tab ">
+              <a href="https://www.jianshu.com/">
+                <span class="menu-text">首页</span><i class="iconfont ic-navigation-discover menu-icon"></i>
+</a>            </li>
+            <li class="tab ">
+              <a id="web-nav-app-download-btn" class="app-download-btn" href="https://www.jianshu.com/apps?utm_medium=desktop&amp;utm_source=navbar-apps"><span class="menu-text">下载App</span><i class="iconfont ic-navigation-download menu-icon"></i></a>
+            </li>
+          <li class="search">
+            <form target="_blank" action="/search" accept-charset="UTF-8" method="get"><input name="utf8" value="✓" type="hidden">
+              <input name="q" id="q" autocomplete="off" placeholder="搜索" class="search-input" type="text">
+              <a class="search-btn" href="javascript:void(null)"><i class="iconfont ic-search"></i></a>
+</form>          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    
+<div class="note">
+  <a target="_blank" href="https://www.jianshu.com/apps/download?utm_source=sbc" id="web-note-ad-fixed" style="left: 976.5px; display: none;"><span class="close">×</span></a>
+  <div class="post">
+    <div class="article">
+        <h1 class="title">IOS进阶之WKWebView</h1>
+
+        <!-- 作者区域 -->
+        <div class="author">
+          <a class="avatar" href="https://www.jianshu.com/u/a27dfbb6d04f">
+            <img src="h5_files/8893b1ef6fbf.jpg" alt="96">
+</a>          <div class="info">
+            <span class="name"><a href="https://www.jianshu.com/u/a27dfbb6d04f">o翻滚的牛宝宝o</a></span>
+            <!-- 关注用户按钮 -->
+            <a class="btn btn-success follow"><i class="iconfont ic-follow"></i><span>关注</span></a>
+            <!-- 文章数据信息 -->
+            <div class="meta">
+              <!-- 如果文章更新时间大于发布时间，那么使用 tooltip 显示更新时间 -->
+                <span class="publish-time" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="最后编辑于 2017.12.04 05:06">2016.10.08 14:41*</span>
+              <span class="wordage">字数 847</span>
+            <span class="views-count">阅读 27535</span><span class="comments-count">评论 43</span><span class="likes-count">喜欢 161</span><span class="rewards-count ">赞赏 1</span></div>
+          </div>
+          <!-- 如果是当前作者，加入编辑按钮 -->
+        </div>
+
+        <!-- 文章内容 -->
+        <div data-note-content="" class="show-content">
+          <div class="show-content-free">
+            <div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 485px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 57.06%;"></div>
+<div class="image-view" data-width="850" data-height="485"><img data-original-src="//upload-images.jianshu.io/upload_images/2368050-ef83d291bce395ff.png" data-original-width="850" data-original-height="485" data-original-format="image/png" data-original-filesize="588033" style="cursor: zoom-in;" class="" src="h5_files/2368050-ef83d291bce395ff.png"></div>
+</div>
+<div class="image-caption">标题图片</div>
+</div>
+<h2>前言</h2>
+<hr>
+<p>Xcode8发布以后，编译器开始不支持IOS7，所以很多应用在适配IOS10之后都不在适配IOS7了，其中包括了很多大公司，网易新闻，滴滴出行等。因此，我们公司的应用也打算淘汰IOS7。</p>
+<p>支持到IOS8，第一个要改的自然是用<code>WKWebView</code>替换原来的<code>UIWebView</code>。WKWebView有很多明显优势:</p>
+<ul>
+<li><p>更多的支持HTML5的特性</p></li>
+<li><p>官方宣称的高达60fps的滚动刷新率以及内置手势</p></li>
+<li><p>将UIWebViewDelegate与UIWebView拆分成了14类与3个协议,以前很多不方便实现的功能得以实现。<a href="https://link.jianshu.com/?t=https://developer.apple.com/library/mac/documentation/Cocoa/Reference/WebKit/ObjC_classic/index.html" target="_blank" rel="nofollow">文档</a></p></li>
+<li><p>Safari相同的JavaScript引擎</p></li>
+<li><p>占用更少的内存</p></li>
+</ul>
+<p><strong>UIWebView</strong></p>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 480px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 51.89%;"></div>
+<div class="image-view" data-width="925" data-height="480"><img data-original-src="//upload-images.jianshu.io/upload_images/2368050-1d0493d228b5bac8.png" data-original-width="925" data-original-height="480" data-original-format="image/png" data-original-filesize="434402" style="cursor: zoom-in;" class="" src="h5_files/2368050-1d0493d228b5bac8.png"></div>
+</div>
+<div class="image-caption">UIWebView</div>
+</div>
+<p><strong>WKWebView</strong><br>
+</p><div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 447px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 49.45%;"></div>
+<div class="image-view" data-width="904" data-height="447"><img data-original-src="//upload-images.jianshu.io/upload_images/2368050-24e41f21673f40e5.png" data-original-width="904" data-original-height="447" data-original-format="image/png" data-original-filesize="424392" style="cursor: zoom-in;" class="" src="h5_files/2368050-24e41f21673f40e5.png"></div>
+</div>
+<div class="image-caption">WKWebView</div>
+</div><p></p>
+<p>因此，使用<code>WkWebview</code>替换<code>UIWebView</code>还是很有必要的。</p>
+<h2>基本使用方法</h2>
+<hr>
+<p>WKWebView有两个delegate,<strong>WKUIDelegate</strong> 和 <strong>WKNavigationDelegate</strong>。WKNavigationDelegate主要处理一些跳转、加载处理操作，WKUIDelegate主要处理JS脚本，确认框，警告框等。因此WKNavigationDelegate更加常用。</p>
+<p>比较常用的方法：</p>
+<pre class="hljs objectivec"><code class="objectivec"><span class="hljs-meta">#pragma mark - lifeCircle</span>
+- (<span class="hljs-keyword">void</span>)viewDidLoad {
+    [<span class="hljs-keyword">super</span> viewDidLoad];
+    webView = [[<span class="hljs-built_in">WKWebView</span> alloc]init];
+    [<span class="hljs-keyword">self</span>.view addSubview:webView];
+    [webView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(<span class="hljs-keyword">self</span>.view);
+        make.right.equalTo(<span class="hljs-keyword">self</span>.view);
+        make.top.equalTo(<span class="hljs-keyword">self</span>.view);
+        make.bottom.equalTo(<span class="hljs-keyword">self</span>.view);
+    }];
+    webView.UIDelegate = <span class="hljs-keyword">self</span>;
+    webView.navigationDelegate = <span class="hljs-keyword">self</span>;
+    [webView loadRequest:[<span class="hljs-built_in">NSURLRequest</span> requestWithURL:[<span class="hljs-built_in">NSURL</span> URLWithString:<span class="hljs-string">@"http://www.baidu.com"</span>]]];
+
+}
+
+<span class="hljs-meta">#pragma mark - WKNavigationDelegate</span>
+<span class="hljs-comment">// 页面开始加载时调用</span>
+- (<span class="hljs-keyword">void</span>)webView:(<span class="hljs-built_in">WKWebView</span> *)webView didStartProvisionalNavigation:(<span class="hljs-built_in">WKNavigation</span> *)navigation{
+
+}
+<span class="hljs-comment">// 当内容开始返回时调用</span>
+- (<span class="hljs-keyword">void</span>)webView:(<span class="hljs-built_in">WKWebView</span> *)webView didCommitNavigation:(<span class="hljs-built_in">WKNavigation</span> *)navigation{
+
+}
+<span class="hljs-comment">// 页面加载完成之后调用</span>
+- (<span class="hljs-keyword">void</span>)webView:(<span class="hljs-built_in">WKWebView</span> *)webView didFinishNavigation:(<span class="hljs-built_in">WKNavigation</span> *)navigation{
+
+}
+<span class="hljs-comment">// 页面加载失败时调用</span>
+- (<span class="hljs-keyword">void</span>)webView:(<span class="hljs-built_in">WKWebView</span> *)webView didFailProvisionalNavigation:(<span class="hljs-built_in">WKNavigation</span> *)navigation{
+
+}
+<span class="hljs-comment">// 接收到服务器跳转请求之后调用</span>
+- (<span class="hljs-keyword">void</span>)webView:(<span class="hljs-built_in">WKWebView</span> *)webView didReceiveServerRedirectForProvisionalNavigation:(<span class="hljs-built_in">WKNavigation</span> *)navigation{
+
+}
+<span class="hljs-comment">// 在收到响应后，决定是否跳转</span>
+- (<span class="hljs-keyword">void</span>)webView:(<span class="hljs-built_in">WKWebView</span> *)webView decidePolicyForNavigationResponse:(<span class="hljs-built_in">WKNavigationResponse</span> *)navigationResponse decisionHandler:(<span class="hljs-keyword">void</span> (^)(<span class="hljs-built_in">WKNavigationResponsePolicy</span>))decisionHandler{
+
+    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"%@"</span>,navigationResponse.response.URL.absoluteString);
+    <span class="hljs-comment">//允许跳转</span>
+    decisionHandler(<span class="hljs-built_in">WKNavigationResponsePolicyAllow</span>);
+    <span class="hljs-comment">//不允许跳转</span>
+    <span class="hljs-comment">//decisionHandler(WKNavigationResponsePolicyCancel);</span>
+}
+<span class="hljs-comment">// 在发送请求之前，决定是否跳转</span>
+- (<span class="hljs-keyword">void</span>)webView:(<span class="hljs-built_in">WKWebView</span> *)webView decidePolicyForNavigationAction:(<span class="hljs-built_in">WKNavigationAction</span> *)navigationAction decisionHandler:(<span class="hljs-keyword">void</span> (^)(<span class="hljs-built_in">WKNavigationActionPolicy</span>))decisionHandler{
+
+     <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"%@"</span>,navigationAction.request.URL.absoluteString);
+    <span class="hljs-comment">//允许跳转</span>
+    decisionHandler(<span class="hljs-built_in">WKNavigationActionPolicyAllow</span>);
+    <span class="hljs-comment">//不允许跳转</span>
+    <span class="hljs-comment">//decisionHandler(WKNavigationActionPolicyCancel);</span>
+}
+<span class="hljs-meta">#pragma mark - WKUIDelegate</span>
+<span class="hljs-comment">// 创建一个新的WebView</span>
+- (<span class="hljs-built_in">WKWebView</span> *)webView:(<span class="hljs-built_in">WKWebView</span> *)webView createWebViewWithConfiguration:(<span class="hljs-built_in">WKWebViewConfiguration</span> *)configuration forNavigationAction:(<span class="hljs-built_in">WKNavigationAction</span> *)navigationAction windowFeatures:(<span class="hljs-built_in">WKWindowFeatures</span> *)windowFeatures{
+    <span class="hljs-keyword">return</span> [[<span class="hljs-built_in">WKWebView</span> alloc]init];
+}
+<span class="hljs-comment">// 输入框</span>
+- (<span class="hljs-keyword">void</span>)webView:(<span class="hljs-built_in">WKWebView</span> *)webView runJavaScriptTextInputPanelWithPrompt:(<span class="hljs-built_in">NSString</span> *)prompt defaultText:(<span class="hljs-keyword">nullable</span> <span class="hljs-built_in">NSString</span> *)defaultText initiatedByFrame:(<span class="hljs-built_in">WKFrameInfo</span> *)frame completionHandler:(<span class="hljs-keyword">void</span> (^)(<span class="hljs-built_in">NSString</span> * __<span class="hljs-keyword">nullable</span> result))completionHandler{
+    completionHandler(<span class="hljs-string">@"http"</span>);
+}
+<span class="hljs-comment">// 确认框</span>
+- (<span class="hljs-keyword">void</span>)webView:(<span class="hljs-built_in">WKWebView</span> *)webView runJavaScriptConfirmPanelWithMessage:(<span class="hljs-built_in">NSString</span> *)message initiatedByFrame:(<span class="hljs-built_in">WKFrameInfo</span> *)frame completionHandler:(<span class="hljs-keyword">void</span> (^)(<span class="hljs-built_in">BOOL</span> result))completionHandler{
+    completionHandler(<span class="hljs-literal">YES</span>);
+}
+<span class="hljs-comment">// 警告框</span>
+- (<span class="hljs-keyword">void</span>)webView:(<span class="hljs-built_in">WKWebView</span> *)webView runJavaScriptAlertPanelWithMessage:(<span class="hljs-built_in">NSString</span> *)message initiatedByFrame:(<span class="hljs-built_in">WKFrameInfo</span> *)frame completionHandler:(<span class="hljs-keyword">void</span> (^)(<span class="hljs-keyword">void</span>))completionHandler{
+    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"%@"</span>,message);
+    completionHandler();
+}
+</code></pre>
+<h2>OC与JS交互</h2>
+<hr>
+<p>WKWebview提供了API实现js交互 不需要借助JavaScriptCore或者webJavaScriptBridge。使用WKUserContentController实现js native交互。简单的说就是先注册约定好的方法，然后再调用。</p>
+<h4>JS调用OC方法</h4>
+<p>oc代码(有误，内存不释放):</p>
+<pre class="hljs objectivec"><code class="objectivec"><span class="hljs-class"><span class="hljs-keyword">@interface</span> <span class="hljs-title">ViewController</span> ()&lt;<span class="hljs-title">WKUIDelegate</span>,<span class="hljs-title">WKNavigationDelegate</span>,<span class="hljs-title">WKScriptMessageHandler</span>&gt;</span>{
+    <span class="hljs-built_in">WKWebView</span> * webView;
+    <span class="hljs-built_in">WKUserContentController</span>* userContentController;
+}
+<span class="hljs-keyword">@end</span>
+<span class="hljs-class"><span class="hljs-keyword">@implementation</span> <span class="hljs-title">ViewController</span></span>
+<span class="hljs-meta">#pragma mark - lifeCircle</span>
+- (<span class="hljs-keyword">void</span>)viewDidLoad {
+    [<span class="hljs-keyword">super</span> viewDidLoad];
+    <span class="hljs-comment">//配置环境</span>
+    <span class="hljs-built_in">WKWebViewConfiguration</span> * configuration = [[<span class="hljs-built_in">WKWebViewConfiguration</span> alloc]init];
+    userContentController =[[<span class="hljs-built_in">WKUserContentController</span> alloc]init];
+    configuration.userContentController = userContentController;
+    webView = [[<span class="hljs-built_in">WKWebView</span> alloc]initWithFrame:<span class="hljs-built_in">CGRectMake</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>) configuration:configuration];
+    <span class="hljs-comment">//注册方法</span>
+    [userContentController addScriptMessageHandler:<span class="hljs-keyword">self</span>  name:<span class="hljs-string">@"sayhello"</span>];<span class="hljs-comment">//注册一个name为sayhello的js方法</span>
+
+    [<span class="hljs-keyword">self</span>.view addSubview:webView];
+    [webView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(<span class="hljs-keyword">self</span>.view);
+        make.right.equalTo(<span class="hljs-keyword">self</span>.view);
+        make.top.equalTo(<span class="hljs-keyword">self</span>.view);
+        make.bottom.equalTo(<span class="hljs-keyword">self</span>.view);
+    }];
+    webView.UIDelegate = <span class="hljs-keyword">self</span>;
+    webView.navigationDelegate = <span class="hljs-keyword">self</span>;
+    [webView loadRequest:[<span class="hljs-built_in">NSURLRequest</span> requestWithURL:[<span class="hljs-built_in">NSURL</span> URLWithString:<span class="hljs-string">@"http://www.test.com"</span>]]];
+}
+- (<span class="hljs-keyword">void</span>)dealloc{
+    <span class="hljs-comment">//这里需要注意，前面增加过的方法一定要remove掉。</span>
+    [userContentController removeScriptMessageHandlerForName:<span class="hljs-string">@"sayhello"</span>];
+}
+<span class="hljs-meta">#pragma mark - WKScriptMessageHandler</span>
+- (<span class="hljs-keyword">void</span>)userContentController:(<span class="hljs-built_in">WKUserContentController</span> *)userContentController didReceiveScriptMessage:(<span class="hljs-built_in">WKScriptMessage</span> *)message{
+    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"name:%@\\\\n body:%@\\\\n frameInfo:%@\\\\n"</span>,message.name,message.body,message.frameInfo);
+}
+<span class="hljs-keyword">@end</span>
+</code></pre>
+<p>上面的OC代码如果认证测试一下就会发现dealloc并不会执行，这样肯定是不行的，会造成内存泄漏。原因是<code>[userContentController addScriptMessageHandler:self name:@"sayhello"];</code>这句代码造成无法释放内存。（ps:试了下用weak指针还是不能释放，不知道是什么原因。）因此还需要进一步改进，正确的写法是用一个新的controller来处理,新的controller再绕用delegate绕回来。</p>
+<p>oc代码(正确写法):</p>
+<pre class="hljs objectivec"><code class="objectivec"><span class="hljs-class"><span class="hljs-keyword">@interface</span> <span class="hljs-title">ViewController</span> ()&lt;<span class="hljs-title">WKUIDelegate</span>,<span class="hljs-title">WKNavigationDelegate</span>,<span class="hljs-title">WKScriptMessageHandler</span>&gt;</span>{
+    <span class="hljs-built_in">WKWebView</span> * webView;
+    <span class="hljs-built_in">WKUserContentController</span>* userContentController;
+}
+<span class="hljs-keyword">@end</span>
+<span class="hljs-class"><span class="hljs-keyword">@implementation</span> <span class="hljs-title">ViewController</span></span>
+<span class="hljs-meta">#pragma mark - lifeCircle</span>
+- (<span class="hljs-keyword">void</span>)viewDidLoad {
+    [<span class="hljs-keyword">super</span> viewDidLoad];
+    <span class="hljs-comment">//配置环境</span>
+    <span class="hljs-built_in">WKWebViewConfiguration</span> * configuration = [[<span class="hljs-built_in">WKWebViewConfiguration</span> alloc]init];
+    userContentController =[[<span class="hljs-built_in">WKUserContentController</span> alloc]init];
+    configuration.userContentController = userContentController;
+    webView = [[<span class="hljs-built_in">WKWebView</span> alloc]initWithFrame:<span class="hljs-built_in">CGRectMake</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>) configuration:configuration];
+    <span class="hljs-comment">//注册方法</span>
+    <span class="hljs-built_in">WKDelegateController</span> * delegateController = [[<span class="hljs-built_in">WKDelegateController</span> alloc]init];
+    delegateController.delegate = <span class="hljs-keyword">self</span>;
+
+    [userContentController addScriptMessageHandler:delegateController  name:<span class="hljs-string">@"sayhello"</span>];
+
+    [<span class="hljs-keyword">self</span>.view addSubview:webView];
+    [webView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(<span class="hljs-keyword">self</span>.view);
+        make.right.equalTo(<span class="hljs-keyword">self</span>.view);
+        make.top.equalTo(<span class="hljs-keyword">self</span>.view);
+        make.bottom.equalTo(<span class="hljs-keyword">self</span>.view);
+    }];
+    webView.UIDelegate = <span class="hljs-keyword">self</span>;
+    webView.navigationDelegate = <span class="hljs-keyword">self</span>;
+    [webView loadRequest:[<span class="hljs-built_in">NSURLRequest</span> requestWithURL:[<span class="hljs-built_in">NSURL</span> URLWithString:<span class="hljs-string">@"http://www.test.com"</span>]]];
+}
+- (<span class="hljs-keyword">void</span>)dealloc{
+    <span class="hljs-comment">//这里需要注意，前面增加过的方法一定要remove掉。</span>
+    [userContentController removeScriptMessageHandlerForName:<span class="hljs-string">@"sayhello"</span>];
+}
+<span class="hljs-meta">#pragma mark - WKScriptMessageHandler</span>
+- (<span class="hljs-keyword">void</span>)userContentController:(<span class="hljs-built_in">WKUserContentController</span> *)userContentController didReceiveScriptMessage:(<span class="hljs-built_in">WKScriptMessage</span> *)message{
+    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"name:%@\\\\n body:%@\\\\n frameInfo:%@\\\\n"</span>,message.name,message.body,message.frameInfo);
+}
+<span class="hljs-keyword">@end</span>
+</code></pre>
+<p>WKDelegateController代码：</p>
+<pre class="hljs objectivec"><code class="objectivec"><span class="hljs-meta">#import <span class="hljs-meta-string">&lt;UIKit/UIKit.h&gt;</span></span>
+<span class="hljs-meta">#import <span class="hljs-meta-string">&lt;WebKit/WebKit.h&gt;</span></span>
+<span class="hljs-class"><span class="hljs-keyword">@protocol</span> <span class="hljs-title">WKDelegate</span> &lt;<span class="hljs-title">NSObject</span>&gt;</span>
+
+- (<span class="hljs-keyword">void</span>)userContentController:(<span class="hljs-built_in">WKUserContentController</span> *)userContentController didReceiveScriptMessage:(<span class="hljs-built_in">WKScriptMessage</span> *)message;
+
+<span class="hljs-keyword">@end</span>
+
+<span class="hljs-class"><span class="hljs-keyword">@interface</span> <span class="hljs-title">WKDelegateController</span> : <span class="hljs-title">UIViewController</span> &lt;<span class="hljs-title">WKScriptMessageHandler</span>&gt;</span>
+
+<span class="hljs-keyword">@property</span> (<span class="hljs-keyword">weak</span> , <span class="hljs-keyword">nonatomic</span>) <span class="hljs-keyword">id</span>&lt;<span class="hljs-built_in">WKDelegate</span>&gt; delegate;
+
+<span class="hljs-keyword">@end</span>
+</code></pre>
+<p>.m代码：</p>
+<pre class="hljs objectivec"><code class="objectivec"><span class="hljs-meta">#import <span class="hljs-meta-string">"WKDelegateController.h"</span></span>
+
+<span class="hljs-class"><span class="hljs-keyword">@interface</span> <span class="hljs-title">WKDelegateController</span> ()</span>
+
+<span class="hljs-keyword">@end</span>
+
+<span class="hljs-class"><span class="hljs-keyword">@implementation</span> <span class="hljs-title">WKDelegateController</span></span>
+
+- (<span class="hljs-keyword">void</span>)viewDidLoad {
+    [<span class="hljs-keyword">super</span> viewDidLoad];
+}
+
+- (<span class="hljs-keyword">void</span>)userContentController:(<span class="hljs-built_in">WKUserContentController</span> *)userContentController didReceiveScriptMessage:(<span class="hljs-built_in">WKScriptMessage</span> *)message{
+    <span class="hljs-keyword">if</span> ([<span class="hljs-keyword">self</span>.delegate respondsToSelector:<span class="hljs-keyword">@selector</span>(userContentController:didReceiveScriptMessage:)]) {
+        [<span class="hljs-keyword">self</span>.delegate userContentController:userContentController didReceiveScriptMessage:message];
+    }
+}
+
+
+<span class="hljs-keyword">@end</span>
+</code></pre>
+<p>h5代码:</p>
+<pre class="hljs xml"><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">say</span>(<span class="hljs-params"></span>)
+</span>{
+<span class="hljs-comment">//前端需要用 window.webkit.messageHandlers.注册的方法名.postMessage({body:传输的数据} 来给native发送消息</span>
+    <span class="hljs-built_in">window</span>.webkit.messageHandlers.sayhello.postMessage({<span class="hljs-attr">body</span>: <span class="hljs-string">'hello world!'</span>});
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>hello world<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"say()"</span>&gt;</span>say hello<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p>打印出的log：</p>
+<pre class="hljs objectivec"><code class="objectivec"> name:sayhello
+ body:{
+    body = <span class="hljs-string">"hello world!"</span>;
+}
+ frameInfo:&lt;<span class="hljs-built_in">WKFrameInfo</span>: <span class="hljs-number">0x7f872060ce20</span>; isMainFrame = <span class="hljs-literal">YES</span>; request =   &lt;<span class="hljs-built_in">NSMutableURLRequest</span>: <span class="hljs-number">0x618000010a30</span>&gt; { URL: http:<span class="hljs-comment">//www.test.com/ }&gt;</span>
+</code></pre>
+<h4>注意点</h4>
+<ul>
+<li>
+<code>addScriptMessageHandler</code>要和<code>removeScriptMessageHandlerForName</code>配套出现，否则会造成内存泄漏。</li>
+<li>h5只能传一个参数，如果需要多个参数就需要用<strong>字典</strong>或者<strong>json</strong>组装。</li>
+</ul>
+<hr>
+<h4>oc调用JS方法</h4>
+<p>代码如下：</p>
+<pre class="hljs objectivec"><code class="objectivec">- (<span class="hljs-keyword">void</span>)webView:(<span class="hljs-built_in">WKWebView</span> *)tmpWebView didFinishNavigation:(<span class="hljs-built_in">WKNavigation</span> *)navigation{
+
+    <span class="hljs-comment">//say()是JS方法名，completionHandler是异步回调block</span>
+    [webView evaluateJavaScript:<span class="hljs-string">@"say()"</span> completionHandler:^(<span class="hljs-keyword">id</span> _Nullable result, <span class="hljs-built_in">NSError</span> * _Nullable error) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"%@"</span>,result);
+    }];
+    
+}
+</code></pre>
+<p>h5代码同上。</p>
+<h2>WebViewJavascriptBridge</h2>
+<hr>
+<p>一般来说，一个好的UI总有一个大神会开发出一个好的第三方封装框架。WebViewJavascriptBridge的作者也做了一套支持WKWebView与JS交互的第三方框架:WKWebViewJavascriptBridge。</p>
+<ul>
+<li><p><strong>cocoaPods:</strong> pod 'WebViewJavascriptBridge', '~&gt; 5.0.5'</p></li>
+<li><p><strong>github地址：</strong><a href="https://link.jianshu.com/?t=https://github.com/marcuswestin/WebViewJavascriptBridge/blob/master/WebViewJavascriptBridge/WKWebViewJavascriptBridge.h" target="_blank" rel="nofollow">https://github.com/marcuswestin/WebViewJavascriptBridge</a></p></li>
+</ul>
+<p>主要方法如下：</p>
+<pre class="hljs objectivec"><code class="objectivec"><span class="hljs-comment">//初始化方法</span>
++ (<span class="hljs-keyword">instancetype</span>)bridgeForWebView:(<span class="hljs-built_in">WKWebView</span>*)webView;
++ (<span class="hljs-keyword">void</span>)enableLogging;
+
+<span class="hljs-comment">//注册函数名</span>
+- (<span class="hljs-keyword">void</span>)registerHandler:(<span class="hljs-built_in">NSString</span>*)handlerName handler:(WVJBHandler)handler;
+
+<span class="hljs-comment">//调用函数名</span>
+- (<span class="hljs-keyword">void</span>)callHandler:(<span class="hljs-built_in">NSString</span>*)handlerName;
+- (<span class="hljs-keyword">void</span>)callHandler:(<span class="hljs-built_in">NSString</span>*)handlerName data:(<span class="hljs-keyword">id</span>)data;
+- (<span class="hljs-keyword">void</span>)callHandler:(<span class="hljs-built_in">NSString</span>*)handlerName data:(<span class="hljs-keyword">id</span>)data responseCallback:(WVJBResponseCallback)responseCallback;
+
+<span class="hljs-comment">//重置</span>
+- (<span class="hljs-keyword">void</span>)reset;
+
+<span class="hljs-comment">//设置WKNavigationDelegate</span>
+- (<span class="hljs-keyword">void</span>)setWebViewDelegate:(<span class="hljs-keyword">id</span>&lt;<span class="hljs-built_in">WKNavigationDelegate</span>&gt;)webViewDelegate;
+</code></pre>
+<p>基本的实现方法和上面写的差不多，就是封装了一下，有兴趣的童鞋可以自己pod下来使用。</p>
+<hr>
+<h4>我是翻滚的牛宝宝，欢迎大家评论交流~</h4>
+<h2>补充</h2>
+<hr>
+<p>前不久把项目中的UIWebView更新到WkWebView，解决了一大堆问题，但是也遗留了一大堆问题，比方说cookie。</p>
+<p>以前UIWebView会自动去NSHTTPCookieStorage中读取cookie，但是WKWebView并不会去读取,因此导致cookie丢失以及一系列问题，解决方式就是在request中手动帮其添加上。</p>
+<pre class="hljs objectivec"><code class="objectivec">mainWebView.UIDelegate = <span class="hljs-keyword">self</span>;
+mainWebView.navigationDelegate = <span class="hljs-keyword">self</span>;
+<span class="hljs-built_in">NSMutableURLRequest</span> *request = [<span class="hljs-built_in">NSMutableURLRequest</span> requestWithURL:[<span class="hljs-built_in">NSURL</span> URLWithString:<span class="hljs-string">@"http://www.test.com"</span>]];
+[request addValue:[<span class="hljs-keyword">self</span> readCurrentCookieWithDomain:<span class="hljs-string">@"http://www.test.com/"</span>] forHTTPHeaderField:<span class="hljs-string">@"Cookie"</span>];
+[mainWebView loadRequest:request];
+
+- (<span class="hljs-built_in">NSString</span> *)readCurrentCookieWithDomain:(<span class="hljs-built_in">NSString</span> *)domainStr{
+    <span class="hljs-built_in">NSHTTPCookieStorage</span>*cookieJar = [<span class="hljs-built_in">NSHTTPCookieStorage</span> sharedHTTPCookieStorage];
+    <span class="hljs-built_in">NSMutableString</span> * cookieString = [[<span class="hljs-built_in">NSMutableString</span> alloc]init];
+    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">NSHTTPCookie</span>*cookie <span class="hljs-keyword">in</span> [cookieJar cookies]) {
+        [cookieString appendFormat:<span class="hljs-string">@"%@=%@;"</span>,cookie.name,cookie.value];
+    }
+
+<span class="hljs-comment">//删除最后一个“；”</span>
+    [cookieString deleteCharactersInRange:<span class="hljs-built_in">NSMakeRange</span>(cookieString.length - <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)];
+    <span class="hljs-keyword">return</span> cookieString;
+}
+</code></pre>
+<p>但是这只能解决第一次进入的cookie问题，如果页面内跳转（a标签等）还是取不到cookie，因此还要再加代码。</p>
+<pre class="hljs objectivec"><code class="objectivec">- (<span class="hljs-keyword">void</span>)webView:(<span class="hljs-built_in">WKWebView</span> *)webView didFinishNavigation:(<span class="hljs-built_in">WKNavigation</span> *)navigation {
+
+   <span class="hljs-comment">//取出cookie</span>
+    <span class="hljs-built_in">NSHTTPCookieStorage</span> *cookieStorage = [<span class="hljs-built_in">NSHTTPCookieStorage</span> sharedHTTPCookieStorage];
+    <span class="hljs-comment">//js函数</span>
+    <span class="hljs-built_in">NSString</span> *JSFuncString =
+<span class="hljs-string">@"function setCookie(name,value,expires)\
+    {\
+    var oDate=new Date();\
+    oDate.setDate(oDate.getDate()+expires);\
+document.cookie=name+'='+value+';expires='+oDate+';path=/'\
+    }\
+    function getCookie(name)\
+    {\
+    var arr = document.cookie.match(new RegExp('(^| )'+name+'=([^;]*)(;|$)'));\
+    if(arr != null) return unescape(arr[2]); return null;\
+    }\
+    function delCookie(name)\
+    {\
+    var exp = new Date();\
+    exp.setTime(exp.getTime() - 1);\
+    var cval=getCookie(name);\
+    if(cval!=null) document.cookie= name + '='+cval+';expires='+exp.toGMTString();\
+    }"</span>;
+
+    <span class="hljs-comment">//拼凑js字符串</span>
+    <span class="hljs-built_in">NSMutableString</span> *JSCookieString = JSFuncString.mutableCopy;
+    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">NSHTTPCookie</span> *cookie <span class="hljs-keyword">in</span> cookieStorage.cookies) {
+    <span class="hljs-built_in">NSString</span> *excuteJSString = [<span class="hljs-built_in">NSString</span> stringWithFormat:<span class="hljs-string">@"setCookie('%@', '%@', 1);"</span>, cookie.name, cookie.value];
+        [JSCookieString appendString:excuteJSString];
+    }
+    <span class="hljs-comment">//执行js</span>
+    [webView evaluateJavaScript:JSCookieString completionHandler:<span class="hljs-literal">nil</span>];
+
+}</code></pre>
+
+          </div>
+        </div>
+    </div>
+
+    <!-- 连载目录项 -->
+
+    <!-- 打赏文章、购买文章、购买连载 -->
+        <div id="free-reward-panel" class="support-author"><p>小礼物走一走，来简书关注我</p> <div class="btn btn-pay">赞赏支持</div> <div class="supporter"><ul class="support-list"><li><a target="_blank" href="https://www.jianshu.com/u/dc3a8dbf4c69" class="avatar"><img src="h5_files/9a14661990a1.jpg"></a></li></ul> <!----></div> <!----> <!----></div>
+
+      <div class="show-foot">
+        <a class="notebook" href="https://www.jianshu.com/nb/4909765">
+          <i class="iconfont ic-search-notebook"></i>
+          <span>ios开发笔记</span>
+</a>        <div class="copyright" data-toggle="tooltip" data-html="true" data-original-title="转载请联系作者获得授权，并标注“简书作者”。">
+          © 著作权归作者所有
+        </div>
+        <div class="modal-wrap" data-report-note="">
+          <a id="report-modal">举报文章</a>
+        </div>
+      </div>
+
+      <!-- 文章底部作者信息 -->
+        <div class="follow-detail">
+          <div class="info">
+            <a class="avatar" href="https://www.jianshu.com/u/a27dfbb6d04f">
+              <img src="h5_files/8893b1ef6fbf.jpg" alt="96">
+</a>            <a class="btn btn-success follow"><i class="iconfont ic-follow"></i><span>关注</span></a>
+            <a class="title" href="https://www.jianshu.com/u/a27dfbb6d04f">o翻滚的牛宝宝o</a>
+            
+          <p>写了 26980 字，被 401 人关注，获得了 501 个喜欢</p></div>
+            <div class="signature">最美之物，永不凋零</div>
+        </div>
+
+    <div class="meta-bottom">
+      <div data-v-6ddd02c6="" class="like"><div data-v-6ddd02c6="" class="btn like-group"><div data-v-6ddd02c6="" class="btn-like"><a data-v-6ddd02c6="">喜欢</a></div> <div data-v-6ddd02c6="" class="modal-wrap"><a data-v-6ddd02c6="">161</a></div></div> <!----></div>
+      <div class="share-group">
+        <a class="share-circle" data-action="weixin-share" data-toggle="tooltip" data-original-title="分享到微信">
+          <i class="iconfont ic-wechat"></i>
+        </a>
+        <a class="share-circle" data-action="weibo-share" data-toggle="tooltip" href="javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f='http://v.t.sina.com.cn/share/share.php?appkey=1881139527',u=z||d.location,p=['&amp;url=',e(u),'&amp;title=',e(t||d.title),'&amp;source=',e(r),'&amp;sourceUrl=',e(l),'&amp;content=',c||'gb2312','&amp;pic=',e(p||'')].join('');function%20a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=440,height=430,left=',(s.width-440)/2,',top=',(s.height-430)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,'','','',%20'%E6%8E%A8%E8%8D%90%20o%E7%BF%BB%E6%BB%9A%E7%9A%84%E7%89%9B%E5%AE%9D%E5%AE%9Do%20%E7%9A%84%E6%96%87%E7%AB%A0%E3%80%8AIOS%E8%BF%9B%E9%98%B6%E4%B9%8BWKWebView%E3%80%8B%EF%BC%88%20%E5%88%86%E4%BA%AB%E8%87%AA%20@%E7%AE%80%E4%B9%A6%20%EF%BC%89','https://www.jianshu.com/p/4fa8c4eb1316?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weibo','%E9%A1%B5%E9%9D%A2%E7%BC%96%E7%A0%81gb2312|utf-8%E9%BB%98%E8%AE%A4gb2312'));" data-original-title="分享到微博">
+          <i class="iconfont ic-weibo"></i>
+        </a>
+          <a class="share-circle" data-toggle="tooltip" href="http://cwb.assets.jianshu.io/notes/images/6192976/weibo/image_0fb62e67ad29.jpg" target="_blank" data-original-title="下载长微博图片">
+            <i class="iconfont ic-picture"></i>
+          </a>
+        <a class="share-circle more-share" tabindex="0" data-toggle="popover" data-placement="top" data-html="true" data-trigger="focus" href="javascript:void(0);" data-content="
+          &lt;ul class=&quot;share-list&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r='http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+e('https://www.jianshu.com/p/4fa8c4eb1316?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=qzone')+'&amp;title='+e('推荐 o翻滚的牛宝宝o 的文章《IOS进阶之WKWebView》'),x=function(){if(!window.open(r,'qzone','toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600'))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-zone&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到QQ空间&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r='https://twitter.com/share?url='+e('https://www.jianshu.com/p/4fa8c4eb1316?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=twitter')+'&amp;text='+e('推荐 o翻滚的牛宝宝o 的文章《IOS进阶之WKWebView》（ 分享自 @jianshucom ）')+'&amp;related='+e('jianshucom'),x=function(){if(!window.open(r,'twitter','toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600'))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-twitter&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r='https://www.facebook.com/dialog/share?app_id=483126645039390&amp;display=popup&amp;href=https://www.jianshu.com/p/4fa8c4eb1316?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=facebook',x=function(){if(!window.open(r,'facebook','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330'))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-facebook&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Facebook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r='https://plus.google.com/share?url='+e('https://www.jianshu.com/p/4fa8c4eb1316?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=google_plus'),x=function(){if(!window.open(r,'google_plus','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330'))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-google&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Google+&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:'',r='http://www.douban.com/recommend/?url='+e('https://www.jianshu.com/p/4fa8c4eb1316?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=douban')+'&amp;title='+e('IOS进阶之WKWebView')+'&amp;sel='+e(s)+'&amp;v=1',x=function(){if(!window.open(r,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330'))location.href=r+'&amp;r=1'};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-douban&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到豆瓣&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        " data-original-title="" title="">更多分享</a>
+      </div>
+    </div>
+      <a id="web-note-ad-1" target="_blank" href="https://www.jianshu.com/apps/download?utm_source=nbc"><img src="h5_files/web-note-ad-1-10f08e404d3887d2d45a4bc8f1831403.png" alt="Web note ad 1"></a>
+    <div id="vue_comment"></div>
+  </div>
+
+  <div class="side-tool"><ul><li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="回到顶部" style=""><a class="function-button"><i class="iconfont ic-backtop"></i></a></li> <!----> <!----> <li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="分享文章"><a tabindex="0" role="button" data-toggle="popover" data-placement="left" data-html="true" data-trigger="focus" href="javascript:void(0);" data-content="&lt;ul class='share-list'&gt;
+                &lt;li&gt;&lt;a class=&quot;weixin-share&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-weixin&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到微信&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f='http://v.t.sina.com.cn/share/share.php?appkey=1881139527',u=z||d.location,p=['&amp;url=',e(u),'&amp;title=',e(t||d.title),'&amp;source=',e(r),'&amp;sourceUrl=',e(l),'&amp;content=',c||'gb2312','&amp;pic=',e(p||'')].join('');function%20a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=440,height=430,left=',(s.width-440)/2,',top=',(s.height-430)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,'','','', '推荐 o翻滚的牛宝宝o 的文章《IOS进阶之WKWebView》（ 分享自 @简书 ）','https://www.jianshu.com/p/4fa8c4eb1316?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weibo','页面编码gb2312|utf-8默认gb2312'));&quot;&gt;&lt;i class='social-icon-sprite social-icon-weibo'&gt;&lt;/i&gt;&lt;span&gt;分享到微博&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r='http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+e('https://www.jianshu.com/p/4fa8c4eb1316?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=qzone')+'&amp;title='+e('推荐 o翻滚的牛宝宝o 的文章《IOS进阶之WKWebView》'),x=function(){if(!window.open(r,'qzone','toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600'))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class='social-icon-sprite social-icon-zone'&gt;&lt;/i&gt;&lt;span&gt;分享到QQ空间&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r='https://twitter.com/share?url='+e('https://www.jianshu.com/p/4fa8c4eb1316?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=twitter')+'&amp;text='+e('推荐 o翻滚的牛宝宝o 的文章《IOS进阶之WKWebView》（ 分享自 @jianshucom ）')+'&amp;related='+e('jianshucom'),x=function(){if(!window.open(r,'twitter','toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600'))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class='social-icon-sprite social-icon-twitter'&gt;&lt;/i&gt;&lt;span&gt;分享到Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r='https://www.facebook.com/dialog/share?app_id=483126645039390&amp;display=popup&amp;href=https://www.jianshu.com/p/4fa8c4eb1316?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=facebook',x=function(){if(!window.open(r,'facebook','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330'))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class='social-icon-sprite social-icon-facebook'&gt;&lt;/i&gt;&lt;span&gt;分享到Facebook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r='https://plus.google.com/share?url='+e('https://www.jianshu.com/p/4fa8c4eb1316?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=google_plus'),x=function(){if(!window.open(r,'google_plus','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330'))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class='social-icon-sprite social-icon-google'&gt;&lt;/i&gt;&lt;span&gt;分享到Google+&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:'',r='http://www.douban.com/recommend/?url='+e('https://www.jianshu.com/p/4fa8c4eb1316?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=douban')+'&amp;title='+e('IOS进阶之WKWebView')+'&amp;sel='+e(s)+'&amp;v=1',x=function(){if(!window.open(r,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330'))location.href=r+'&amp;r=1'};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()&quot;&gt;&lt;i class='social-icon-sprite social-icon-douban'&gt;&lt;/i&gt;&lt;span&gt;分享到豆瓣&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;" data-original-title="" title="" class="function-button"><i class="iconfont ic-share"></i></a> <!----></li> <!----></ul></div>
+</div>
+<div class="note-bottom">
+  <div><div class="main"><div class="title">被以下专题收入，发现更多相似内容</div> <!----> <div class="include-collection"><!----> <a href="https://www.jianshu.com/c/35ccef5d8741?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="h5_files/1447753556.png"><div class="name">iOS学习记录</div></a><a href="https://www.jianshu.com/c/527cd13a0f17?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="h5_files/_2017-09-28_12.png"><div class="name">iOS程序猿</div></a><a href="https://www.jianshu.com/c/2ffaa203eb6a?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="h5_files/Snip20161012_2.png"><div class="name">iOS 开发 </div></a><a href="https://www.jianshu.com/c/e9892dccd0ca?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="h5_files/1463318266.jpg"><div class="name">将来跳槽用</div></a><a href="https://www.jianshu.com/c/8714ccc4eb35?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="h5_files/1462121858.jpg"><div class="name">橙红科技有限公司</div></a><a href="https://www.jianshu.com/c/a5dab211b6ff?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="h5_files/1463245960.jpg"><div class="name">牛叉的demo</div></a><a href="https://www.jianshu.com/c/5aac963ca52d?utm_source=desktop&amp;utm_medium=notes-included-collection" target="_blank" class="item"><img src="h5_files/1483788045.jpg"><div class="name">移动前沿</div></a> <a class="show-more">
+        展开更多
+        <i class="iconfont ic-show"></i></a></div></div> <!----> <!----></div>
+  <div data-vcomp="recommended-notes" data-note-id="6192976"></div>
+  <!-- 相关文章 -->
+  <div class="seo-recommended-notes">
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/47ca750a69ab?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="h5_files/3093335-9a3d420fd40d82c2.jpg" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/47ca750a69ab?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">IOS进阶之WKWebView</a>
+          <p class="description">2016-10-26o翻滚的牛宝宝oCocoaChina 
+▲点击上方“CocoaChina”关注即可免费学习iOS开发 
+原文链接：http://www.jianshu.com/p/4fa8c4eb1316 前言 
+Xcode8发布以后，编译器开始不支持IOS7，所以很多应用在...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/83b318677707?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="h5_files/d33cb27ce5d9.jpg" alt="48">
+            </div>
+            <span class="name">飞雯焕日</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/4f7a7df57e89?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="h5_files/3627439-9a70bea5f1740b96.jpg" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/4f7a7df57e89?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">IOS进阶之WKWebView</a>
+          <p class="description">Xcode8发布以后，编译器开始不支持IOS7，所以很多应用在适配IOS10之
+后都不在适配IOS7了，其中包括了很多大公司，网易新闻，滴滴出行等。因此，我们公司的应用也打算淘汰IOS7。 
+支持到IOS8，第一个要改的自然是用WKWebView替换原来的UIWebView。W...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/a16a92bff930?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="h5_files/6-fd30f34c8641f6f32f5494df5d6b8f3c.jpg" alt="48">
+            </div>
+            <span class="name">花无缺_</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="https://www.jianshu.com/p/7ba4d70cb1a1?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">IOS进阶之WKWebView</a>
+          <p class="description">基本使用方法WKWebView有两个delegate,WKUIDelegate
+ 和 
+WKNavigationDelegate。WKNavigationDelegate主要处理一些跳转、加载处理操作，WKUIDelegate主要处
+理JS脚本，确认框，警告框等。因此WKNavi...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/7528ec828db6?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="h5_files/9c03c344e71d.jpg" alt="48">
+            </div>
+            <span class="name">远0</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/21f4b9020d18?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="h5_files/5912049-2d84c08291858abe.jpg" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/21f4b9020d18?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">（转）WKWebview 处理</a>
+          <p class="description">前言 
+关于UIWebView的介绍，相信看过上文的小伙伴们，已经大概清楚了吧，如果有问题，欢迎提问。 
+本文是本系列文章的第二篇，主要为小伙伴们分享下WKWebView相关的内容： 
+iOS中UIWebView与WKWebView、JavaScript与OC交互、Cookie管...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/fce901c26622?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="h5_files/abaa83b51f05.jpg" alt="48">
+            </div>
+            <span class="name">CoderLF</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/870dba42ec15?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="h5_files/5912049-acb907ba115ed980.jpg" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/870dba42ec15?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">iOS中UIWebView与WKWebView、JavaScript与OC交互、Cookie管理看我就够（中）</a>
+          <p class="description">前言 
+关于UIWebView的介绍，相信看过上文的小伙伴们，已经大概清楚了吧，如果有问题，欢迎提问。 
+本文是本系列文章的第二篇，主要为小伙伴们分享下WKWebView相关的内容： 
+iOS中UIWebView与WKWebView、JavaScript与OC交互、Cookie管...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/9f088cde1295?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="h5_files/be00e47e-4acd-4837-8a29-df3fa3cf7ca7.gif" alt="48">
+            </div>
+            <span class="name">Dark_Angel</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="https://www.jianshu.com/p/86c8f30c1ad8?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">原则</a>
+          <p class="description">我的交友原则: 
+1.我不接受谁连续耍我三次，第一次尚可做朋友，第二次彻底远离，我不希望第三次发生 
+2.我不喜欢心里很穷困的人，没有钱不是问题，没有几个生下来就有钱的，但是心里很贫穷，不值得深交 
+3.君子之交淡如水，为了共同的目标交友，一起做事，别牵扯太多 4.我喜欢能够为长...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/f5237fcf084d?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="h5_files/d838e7a55721.jpg" alt="48">
+            </div>
+            <span class="name">我不是注销了吗</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="https://www.jianshu.com/p/d60167d4eaac?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">等</a>
+          <p class="description">就像雨伞在等雨 蒲公英在等风 寒冰在等阳光 树叶在等秋天 我 在等你</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/efefa8583ce4?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="h5_files/24ba818e-369e-4e82-b359-78123974adfc.png" alt="48">
+            </div>
+            <span class="name">空瓶小宅</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/df167e5f2721?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="h5_files/3550543-eabf91e4daaf4d5a.jpg" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/df167e5f2721?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">第一次听说地震是这么来的</a>
+          <p class="description">1、A：马上啪啪啪叫马震，车上啪啪啪叫车震，那地上啪啪啪叫什么？ 
+B：叫地震呗！ A：哦，怪不得日本是世界上地震最多的国家！ 2、好友问我：你去过农村没？ 我：去过。 他又问：那你放过牛没？ 我：没。 
+他：你TM居然连牛都不放过！！！ 我@#$@#$%@#% 3、生产TT的...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/a6c899e904d2?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="h5_files/697a9293cc55.jpg" alt="48">
+            </div>
+            <span class="name">晓明同学来了</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="https://www.jianshu.com/p/c3a2282ce84e?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">虐心断肠相思苦</a>
+          <p class="description">冬已近，夜薄凉 明月清辉，惹来孤旅离伤 一缕寒风侵袭 片片惦念，零碎过往 
+几许惆怅 曾与君漫步十里长廊 看蝴蝶飞进残阳 湖心亭畔摇椅悠扬节拍 潋滟菡萏初放馨香 心随飘飞的絮，丢失驻场 身如孤寂的夜灯，瘦影昏黄 
+牵挂的情丝缠绕着离人的心角 思念迷离着悲情，栖落轩窗 将锵铿的诺...</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/d3270ec87af6?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="h5_files/35f3e480-be90-45a0-9853-3feb1bbb3b8a.jpg" alt="48">
+            </div>
+            <span class="name">山上人家123</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="https://www.jianshu.com/p/31146f574a72?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="h5_files/8883148-a51ce5e1e650766b.jpg" alt="240">
+</a>          <a class="title" target="_blank" href="https://www.jianshu.com/p/31146f574a72?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">懒惰</a>
+          <p class="description"> 
+懒惰就像装满墨而长久未打开的砚，墨汁充满了砚盖与砚盒之间细小的缝隙，经过时间的锤炼，变干，变的强有力。最后，当你突然某天想把它打开，却怎么也打不
+开了。  人生而有惰性，其可怕之处就在于若不加管理，它只会越累越多，累到向前迈一步都成了负担，然而人还沉浸其中，全然不知地“享受”。</p>
+          <a class="author" target="_blank" href="https://www.jianshu.com/u/695b992021cf?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="h5_files/227de667-3fb8-4dfe-9dfb-bd942be04054.jpg" alt="48">
+            </div>
+            <span class="name">阳光正好Q</span>
+</a>        </div>
+  </div>
+</div>
+
+    <script type="application/json" data-name="page-data">{"user_signed_in":false,"locale":"zh-CN","os":"mac","read_mode":"day","read_font":"font2","note_show":{"is_martin_user":false,"is_author":false,"is_following_author":false,"is_liked_note":false,"follow_state":0,"uuid":"73567f95-9635-4e41-8dec-51ddb714dfff"},"note":{"id":6192976,"slug":"4fa8c4eb1316","user_id":2368050,"notebook_id":4909765,"commentable":true,"likes_count":161,"views_count":27535,"public_wordage":847,"comments_count":43,"total_rewards_count":1,"is_author":false,"paid_type":"free","paid_content_accessible":false,"author":{"nickname":"o翻滚的牛宝宝o","total_wordage":26980,"followers_count":401,"total_likes_count":501}}}</script>
+    
+    <script src="h5_files/babel-polyfill-fe4aded7942fe8b49646.js" crossorigin="anonymous"></script>
+    <script src="h5_files/web-base-cbda338b9778c4218764.js" crossorigin="anonymous"></script>
+<script src="h5_files/web-42402dabb4b11d135b89.js" crossorigin="anonymous"></script>
+    
+    <script src="h5_files/entry-10465e1a9f46ca000f67.js" crossorigin="anonymous"></script>
+    <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+  
+
+<!----><!----></body></html>

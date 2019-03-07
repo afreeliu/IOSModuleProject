@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "MainGameBg",
+    "texture": "1ckoxQoEROLo68EuHqP2Wv",
+    "rect": [
+      0,
+      0,
+      3000,
+      900
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      3000,
+      900
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

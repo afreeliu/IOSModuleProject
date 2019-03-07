@@ -1,0 +1,36 @@
+[
+  {
+    "__type__": "cc.Prefab",
+    "_name": "enemysInstanNode",
+    "data": {
+      "__id__": 1
+    }
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "enemysInstanNode",
+    "_prefab": {
+      "__type__": "cc.PrefabInfo",
+      "root": {
+        "__id__": 1
+      },
+      "asset": {
+        "__id__": 0
+      },
+      "fileId": "d5uTNlp3lLrph0Ep9IKwkV"
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 191,
+      "y": 20
+    },
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    }
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "__type__": "cc.Prefab",
+    "_name": "playeInstanNode",
+    "data": {
+      "__id__": 1
+    }
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "playeInstanNode",
+    "_components": [
+      {
+        "__type__": "cc.BoxCollider",
+        "node": {
+          "__id__": 1
+        }
+      },
+      null
+    ],
+    "_prefab": {
+      "__type__": "cc.PrefabInfo",
+      "root": {
+        "__id__": 1
+      },
+      "asset": {
+        "__uuid__": "a8geuNVVNOaJ/ahmW/+YF9"
+      },
+      "fileId": "f0er/gEoFKlaKRiEafMc0H"
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": -299,
+      "y": 17
+    },
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "groupIndex": 1
+  }
+]

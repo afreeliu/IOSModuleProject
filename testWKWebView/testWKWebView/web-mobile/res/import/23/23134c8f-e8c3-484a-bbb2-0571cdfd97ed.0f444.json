@@ -1,0 +1,66 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "RolesInfor_Config",
+  "json": [
+    {
+      "ID": "BS001",
+      "Name": "邓茂",
+      "AssetsName": "BS001",
+      "HP": 200,
+      "Attack": 20,
+      "Defence": 5,
+      "Exp": 0,
+      "BuyGold": 50000,
+      "SellGold": 50000,
+      "Brief": "三国战将，英勇善战"
+    },
+    {
+      "ID": "BS002",
+      "Name": "吕布",
+      "AssetsName": "BS002",
+      "HP": 450,
+      "Attack": 50,
+      "Defence": 20,
+      "Exp": 0,
+      "BuyGold": 100000,
+      "SellGold": 100000,
+      "Brief": "三国战神，一夫当关万夫莫开"
+    },
+    {
+      "ID": "BS003",
+      "Name": "斧手",
+      "AssetsName": "BS003",
+      "HP": 100,
+      "Attack": 10,
+      "Defence": 0,
+      "Exp": 0,
+      "BuyGold": 20000,
+      "SellGold": 20000,
+      "Brief": "三国士兵"
+    },
+    {
+      "ID": "BS004",
+      "Name": "兽骑",
+      "AssetsName": "BS004",
+      "HP": 260,
+      "Attack": 13,
+      "Defence": 2,
+      "Exp": 0,
+      "BuyGold": 40000,
+      "SellGold": 40000,
+      "Brief": "部落勇士"
+    },
+    {
+      "ID": "BS005",
+      "Name": "猪刚鬣",
+      "AssetsName": "BS005",
+      "HP": 300,
+      "Attack": 35,
+      "Defence": 10,
+      "Exp": 0,
+      "BuyGold": 80000,
+      "SellGold": 80000,
+      "Brief": "猪八戒，天蓬元帅"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "Customs_config",
+  "json": [
+    {
+      "ID": "CU001",
+      "Enemy1": "斧手",
+      "Enemy1Num": 1,
+      "Enemy2": "兽骑",
+      "Enemy2Num": 0,
+      "Enemy3": "猪刚鬣",
+      "Enemy3Num": 0,
+      "Award": 600
+    },
+    {
+      "ID": "CU002",
+      "Enemy1": "斧手",
+      "Enemy1Num": 2,
+      "Enemy2": "兽骑",
+      "Enemy2Num": 0,
+      "Enemy3": "猪刚鬣",
+      "Enemy3Num": 0,
+      "Award": 800
+    },
+    {
+      "ID": "CU003",
+      "Enemy1": "斧手",
+      "Enemy1Num": 3,
+      "Enemy2": "兽骑",
+      "Enemy2Num": 0,
+      "Enemy3": "猪刚鬣",
+      "Enemy3Num": 0,
+      "Award": 1400
+    },
+    {
+      "ID": "CU004",
+      "Enemy1": "斧手",
+      "Enemy1Num": 4,
+      "Enemy2": "兽骑",
+      "Enemy2Num": 0,
+      "Enemy3": "猪刚鬣",
+      "Enemy3Num": 0,
+      "Award": 1600
+    },
+    {
+      "ID": "CU005",
+      "Enemy1": "斧手",
+      "Enemy1Num": 1,
+      "Enemy2": "兽骑",
+      "Enemy2Num": 2,
+      "Enemy3": "猪刚鬣",
+      "Enemy3Num": 0,
+      "Award": 2000
+    },
+    {
+      "ID": "CU006",
+      "Enemy1": "斧手",
+      "Enemy1Num": 1,
+      "Enemy2": "兽骑",
+      "Enemy2Num": 4,
+      "Enemy3": "猪刚鬣",
+      "Enemy3Num": 0,
+      "Award": 2400
+    },
+    {
+      "ID": "CU007",
+      "Enemy1": "斧手",
+      "Enemy1Num": 0,
+      "Enemy2": "兽骑",
+      "Enemy2Num": 6,
+      "Enemy3": "猪刚鬣",
+      "Enemy3Num": 0,
+      "Award": 2400
+    },
+    {
+      "ID": "CU008",
+      "Enemy1": "斧手",
+      "Enemy1Num": 0,
+      "Enemy2": "兽骑",
+      "Enemy2Num": 4,
+      "Enemy3": "猪刚鬣",
+      "Enemy3Num": 2,
+      "Award": 2400
+    },
+    {
+      "ID": "CU009",
+      "Enemy1": "斧手",
+      "Enemy1Num": 1,
+      "Enemy2": "兽骑",
+      "Enemy2Num": 2,
+      "Enemy3": "猪刚鬣",
+      "Enemy3Num": 1,
+      "Award": 2400
+    },
+    {
+      "ID": "CU0010",
+      "Enemy1": "斧手",
+      "Enemy1Num": 1,
+      "Enemy2": "兽骑",
+      "Enemy2Num": 2,
+      "Enemy3": "猪刚鬣",
+      "Enemy3Num": 2,
+      "Award": 2400
+    },
+    {
+      "ID": "CU0011",
+      "Enemy1": "斧手",
+      "Enemy1Num": 0,
+      "Enemy2": "兽骑",
+      "Enemy2Num": 2,
+      "Enemy3": "猪刚鬣",
+      "Enemy3Num": 4,
+      "Award": 2400
+    },
+    {
+      "ID": "CU0011",
+      "Enemy1": "斧手",
+      "Enemy1Num": 0,
+      "Enemy2": "兽骑",
+      "Enemy2Num": 0,
+      "Enemy3": "猪刚鬣",
+      "Enemy3Num": 6,
+      "Award": 2400
+    }
+  ]
+}

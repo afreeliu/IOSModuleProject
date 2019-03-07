@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Btn",
+    "texture": "dearzM+ZZDQJwJ04/D+zfo",
+    "rect": [
+      0,
+      1,
+      186,
+      80
+    ],
+    "offset": [
+      0,
+      5
+    ],
+    "originalSize": [
+      186,
+      92
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

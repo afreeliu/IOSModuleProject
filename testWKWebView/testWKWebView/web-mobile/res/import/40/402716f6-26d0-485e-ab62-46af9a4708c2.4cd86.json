@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "EQ301",
+    "texture": "8bjD6gn1NIT6SPrH2pOykp",
+    "rect": [
+      10,
+      10,
+      81,
+      82
+    ],
+    "offset": [
+      0.5,
+      -1
+    ],
+    "originalSize": [
+      100,
+      100
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

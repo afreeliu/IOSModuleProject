@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "加载图",
+    "texture": "ff9On6b2JAFIGslmHNGAFD",
+    "rect": [
+      1,
+      1,
+      50,
+      83
+    ],
+    "offset": [
+      -17,
+      0.5
+    ],
+    "originalSize": [
+      86,
+      86
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

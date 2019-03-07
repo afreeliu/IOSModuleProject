@@ -1,0 +1,146 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "邓茂Leve",
+  "json": [
+    {
+      "Leve": 1,
+      "Hp": 200,
+      "Attack": 20,
+      "Defence": 5,
+      "Price": 500
+    },
+    {
+      "Leve": 2,
+      "Hp": 300,
+      "Attack": 40,
+      "Defence": 15,
+      "Price": 700
+    },
+    {
+      "Leve": 3,
+      "Hp": 400,
+      "Attack": 60,
+      "Defence": 25,
+      "Price": 900
+    },
+    {
+      "Leve": 4,
+      "Hp": 500,
+      "Attack": 80,
+      "Defence": 35,
+      "Price": 1100
+    },
+    {
+      "Leve": 5,
+      "Hp": 600,
+      "Attack": 100,
+      "Defence": 45,
+      "Price": 1300
+    },
+    {
+      "Leve": 6,
+      "Hp": 700,
+      "Attack": 120,
+      "Defence": 55,
+      "Price": 1500
+    },
+    {
+      "Leve": 7,
+      "Hp": 800,
+      "Attack": 140,
+      "Defence": 65,
+      "Price": 1700
+    },
+    {
+      "Leve": 8,
+      "Hp": 900,
+      "Attack": 160,
+      "Defence": 75,
+      "Price": 1900
+    },
+    {
+      "Leve": 9,
+      "Hp": 1000,
+      "Attack": 180,
+      "Defence": 85,
+      "Price": 2100
+    },
+    {
+      "Leve": 10,
+      "Hp": 1100,
+      "Attack": 200,
+      "Defence": 95,
+      "Price": 2300
+    },
+    {
+      "Leve": 11,
+      "Hp": 1200,
+      "Attack": 220,
+      "Defence": 105,
+      "Price": 2500
+    },
+    {
+      "Leve": 12,
+      "Hp": 1300,
+      "Attack": 240,
+      "Defence": 115,
+      "Price": 2700
+    },
+    {
+      "Leve": 13,
+      "Hp": 1400,
+      "Attack": 260,
+      "Defence": 125,
+      "Price": 2900
+    },
+    {
+      "Leve": 14,
+      "Hp": 1500,
+      "Attack": 280,
+      "Defence": 135,
+      "Price": 3100
+    },
+    {
+      "Leve": 15,
+      "Hp": 1600,
+      "Attack": 300,
+      "Defence": 145,
+      "Price": 3300
+    },
+    {
+      "Leve": 16,
+      "Hp": 1700,
+      "Attack": 320,
+      "Defence": 155,
+      "Price": 3500
+    },
+    {
+      "Leve": 17,
+      "Hp": 1800,
+      "Attack": 340,
+      "Defence": 165,
+      "Price": 3700
+    },
+    {
+      "Leve": 18,
+      "Hp": 1900,
+      "Attack": 360,
+      "Defence": 175,
+      "Price": 3900
+    },
+    {
+      "Leve": 19,
+      "Hp": 2000,
+      "Attack": 380,
+      "Defence": 185,
+      "Price": 4100
+    },
+    {
+      "Leve": 20,
+      "Hp": 2100,
+      "Attack": 400,
+      "Defence": 195,
+      "Price": 4300
+    }
+  ]
+}

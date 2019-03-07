@@ -1,0 +1,281 @@
+[
+  {
+    "__type__": "cc.AnimationClip",
+    "_name": "attack",
+    "_duration": 1.2,
+    "sample": 30,
+    "wrapMode": "1",
+    "curveData": {
+      "comps": {
+        "cc.Sprite": {
+          "spriteFrame": [
+            {
+              "frame": 0,
+              "value": {
+                "__uuid__": "f4P89EsW1BM5YKBR2GdA71"
+              }
+            },
+            {
+              "frame": 0.16666666666666666,
+              "value": {
+                "__uuid__": "9f66H3ruVK+5BtbWOaDVJh"
+              }
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": {
+                "__uuid__": "5cTjAazQRKMajODDOuwk7F"
+              }
+            },
+            {
+              "frame": 0.5,
+              "value": {
+                "__uuid__": "4bqyZDgGNFz7b14fOSk84U"
+              }
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": {
+                "__uuid__": "a2JnW1gHRI5pUNHnaFzRPA"
+              }
+            },
+            {
+              "frame": 0.8333333333333334,
+              "value": {
+                "__uuid__": "85oQxujUhN5bdI5VuPn7iR"
+              }
+            },
+            {
+              "frame": 1,
+              "value": {
+                "__uuid__": "89IVf7rklC65ihaLMo4S50"
+              }
+            },
+            {
+              "frame": 1.1666666666666667,
+              "value": {
+                "__uuid__": "cc7czI4AtJ8ajTCjTFckqG"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "frame3",
+      "texture": "dfjiftXNVKGarp8yazOeA4",
+      "rect": [
+        110,
+        121,
+        200,
+        128
+      ],
+      "offset": [
+        50,
+        -25
+      ],
+      "originalSize": [
+        320,
+        320
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "frame2",
+      "texture": "5eQUpVbNxFzpzUdYidHXJ4",
+      "rect": [
+        108,
+        108,
+        205,
+        137
+      ],
+      "offset": [
+        50.5,
+        -16.5
+      ],
+      "originalSize": [
+        320,
+        320
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "frame5",
+      "texture": "f2AVKpVHpAzLcKtsQjtdGJ",
+      "rect": [
+        107,
+        114,
+        182,
+        131
+      ],
+      "offset": [
+        38,
+        -19.5
+      ],
+      "originalSize": [
+        320,
+        320
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "frame6",
+      "texture": "c1k4kcREpEkoYoaBEa0ol4",
+      "rect": [
+        97,
+        112,
+        137,
+        133
+      ],
+      "offset": [
+        5.5,
+        -18.5
+      ],
+      "originalSize": [
+        320,
+        320
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "frame1",
+      "texture": "ecnYpE0TxPuql9g1wDdN7t",
+      "rect": [
+        62,
+        106,
+        190,
+        139
+      ],
+      "offset": [
+        -3,
+        -15.5
+      ],
+      "originalSize": [
+        320,
+        320
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "frame4",
+      "texture": "4cTtTvJqRBk6kuNeH5eSCH",
+      "rect": [
+        110,
+        114,
+        197,
+        133
+      ],
+      "offset": [
+        48.5,
+        -20.5
+      ],
+      "originalSize": [
+        320,
+        320
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "frame7",
+      "texture": "564tZMViVPpJnP6BBHAMIo",
+      "rect": [
+        85,
+        104,
+        131,
+        141
+      ],
+      "offset": [
+        -9.5,
+        -14.5
+      ],
+      "originalSize": [
+        320,
+        320
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "frame0",
+      "texture": "f0alUCIx5B+YVSFsrkS/vX",
+      "rect": [
+        59,
+        68,
+        160,
+        177
+      ],
+      "offset": [
+        -21,
+        3.5
+      ],
+      "originalSize": [
+        320,
+        320
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]
