@@ -1,6 +1,8 @@
 
 
 #import <Foundation/Foundation.h>
+#import "ClassNames_GetBundle.h"
+
 
 FOUNDATION_EXTERN NSString *const varNames_requestConfigKey;
 FOUNDATION_EXTERN NSString *const varNames_baseURL;
@@ -35,20 +37,20 @@ FOUNDATION_EXTERN NSString *const varNames_walkthrough;
 
 #pragma mark ---------- 接口
 static inline NSDictionary *methodNames_getRequestConfig() {
-    NSString *varNames_tmpbundlePath = [[[NSBundle mainBundle]resourcePath]stringByAppendingPathComponent:@"PlatFormGamesSDK.bundle"];
-    NSBundle *varNames_tmpbundle = [NSBundle bundleWithPath:varNames_tmpbundlePath];
-    NSString *varNames_tmppath = [varNames_tmpbundle pathForResource:@"PFGames" ofType:@"plist"];
-    NSDictionary *varNames_tmpdic = [NSDictionary dictionaryWithContentsOfFile:path];
+//    NSString *varNames_tmpbundlePath = [[[NSBundle mainBundle]resourcePath]stringByAppendingPathComponent:@"PlatFormGamesSDK.bundle"];
+//    NSBundle *varNames_tmpbundle = [NSBundle bundleWithPath:varNames_tmpbundlePath];
+//    NSString *varNames_tmppath = [varNames_tmpbundle pathForResource:@"PFGames" ofType:@"plist"];
+    NSDictionary *varNames_tmpdic = methodNames_getBundlePlistContent();
     NSDictionary *varNames_tmprequestConfig = [varNames_tmpdic objectForKey:varNames_requestConfigKey];
     return varNames_tmprequestConfig;
 }
-static inline NSString *methodNames_getRequestConfigValueForKey(NSString *key) {
+static inline NSString *methodNames_getRequestConfigValueForKey(NSString *varNames_tmpkey) {
     NSDictionary *varNames_tmpconfig = methodNames_getRequestConfig();
     NSString *varNames_tmpvalue;
     if (varNames_tmpconfig) {
         varNames_tmpvalue = [varNames_tmpconfig objectForKey:varNames_tmpkey];
     }
-    return value;
+    return varNames_tmpvalue;
 }
 static inline NSString *methodNames_httpDelegate() {
     NSString *varNames_tmphttp = methodNames_getRequestConfigValueForKey(varNames_httpKey);
@@ -80,93 +82,93 @@ static inline NSString *methodNames_protocolURL(NSString *varNames_protocol) {
 static inline NSString *methodNames_verifyURL() {
     NSString *varNames_tmpverify = methodNames_getRequestConfigValueForKey(varNames_verify);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpverify?:@"verify", varNames_tmptype?:methodNames_memberType()];
+    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpverify?:varNames_verify, varNames_tmptype?:methodNames_memberType()];
 }
 static inline NSString *methodNames_phonetestURL() {
     NSString *varNames_tmpphonetest = methodNames_getRequestConfigValueForKey(varNames_phonetest);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
     
-    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpphonetest?:@"ptest", varNames_tmptype?:methodNames_memberType()];
+    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpphonetest?:varNames_phonetest, varNames_tmptype?:methodNames_memberType()];
 }
 static inline NSString *methodNames_bindphoneURL() {
     NSString *varNames_tmpbindphone = methodNames_getRequestConfigValueForKey(varNames_bindphone);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpbindphone?:@"bdphone", varNames_tmptype?:methodNames_memberType()];
+    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpbindphone?:varNames_bindphone, varNames_tmptype?:methodNames_memberType()];
 }
 static inline NSString *methodNames_bindidcardURL() {
     NSString *varNames_tmpbindidcard = methodNames_getRequestConfigValueForKey(varNames_bindidcard);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpbindidcard?:@"bindidcard", varNames_tmptype?:methodNames_memberType()];
+    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpbindidcard?:varNames_bindidcard, varNames_tmptype?:methodNames_memberType()];
 }
 static inline NSString *methodNames_gameinitialiseURL() {
     NSString *varNames_tmpgameinitialise = methodNames_getRequestConfigValueForKey(varNames_gameinitialise);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpgameinitialise?:@"gameinitialise", varNames_tmptype?:methodNames_memberType()];
+    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpgameinitialise?:varNames_gameinitialise, varNames_tmptype?:methodNames_memberType()];
 }
 static inline NSString *methodNames_activateURL() {
     NSString *varNames_tmpactivate = methodNames_getRequestConfigValueForKey(varNames_activate);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpactivate?:@"activate", varNames_tmptype?:methodNames_memberType()];
+    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpactivate?:varNames_activate, varNames_tmptype?:methodNames_memberType()];
 }
 static inline NSString *methodNames_memberVisitorURL() {
     NSString *varNames_tmpmember = methodNames_getRequestConfigValueForKey(varNames_member);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@/0", methodNames_baseURL(), varNames_tmpmember?:@"login", varNames_tmptype?:methodNames_memberType()];
+    return [NSString stringWithFormat:@"%@/%@/%@/0", methodNames_baseURL(), varNames_tmpmember?:methodNames_memberType(), varNames_tmptype?:methodNames_memberType()];
 }
 static inline NSString *methodNames_memberPhoneURL() {
     NSString *varNames_tmpmember = methodNames_getRequestConfigValueForKey(varNames_member);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@/1", methodNames_baseURL(), varNames_tmpmember?:@"member", varNames_tmptype?:varNames_type];
+    return [NSString stringWithFormat:@"%@/%@/%@/1", methodNames_baseURL(), varNames_tmpmember?:varNames_member, varNames_tmptype?:varNames_type];
 }
 static inline NSString *methodNames_memberRegisterURL() {
     NSString *varNames_tmpmember = methodNames_getRequestConfigValueForKey(varNames_member);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@/2", methodNames_baseURL(), varNames_tmpmember?:@"member", varNames_tmptype?:varNames_type];
+    return [NSString stringWithFormat:@"%@/%@/%@/2", methodNames_baseURL(), varNames_tmpmember?:varNames_member, varNames_tmptype?:varNames_type];
 }
 static inline NSString *methodNames_memberLoginURL() {
     NSString *varNames_tmpmember = methodNames_getRequestConfigValueForKey(varNames_member);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@/3", methodNames_baseURL(), varNames_tmpmember?:@"member", varNames_tmptype?:methodNames_memberType()];
+    return [NSString stringWithFormat:@"%@/%@/%@/3", methodNames_baseURL(), varNames_tmpmember?:varNames_member, varNames_tmptype?:methodNames_memberType()];
 }
 static inline NSString *methodNames_updatepswURL() {
     NSString *varNames_tmpupdatepsw = methodNames_getRequestConfigValueForKey(varNames_updatepsw);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpupdatepsw?:@"updatepsw", varNames_tmptype?:methodNames_memberType()];
+    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpupdatepsw?:varNames_updatepsw, varNames_tmptype?:methodNames_memberType()];
 }
 static inline NSString *methodNames_backuserpswURL() {
     NSString *varNames_tmpbackuserpsw = methodNames_getRequestConfigValueForKey(varNames_backuserpsw);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpbackuserpsw?:@"backuserpsw", varNames_tmptype?:methodNames_memberType()];
+    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpbackuserpsw?:varNames_backuserpsw, varNames_tmptype?:methodNames_memberType()];
 }
 static inline NSString *methodNames_memberoleURL() {
     NSString *varNames_tmpmemberole = methodNames_getRequestConfigValueForKey(varNames_memberole);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpmemberole?:@"memberole", varNames_tmptype?:methodNames_memberType()];
+    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpmemberole?:varNames_memberole, varNames_tmptype?:methodNames_memberType()];
 }
 static inline NSString *methodNames_updateuserloginURL() {
     NSString *varNames_tmpupdateuserlogin = methodNames_getRequestConfigValueForKey(varNames_updateuserlogin);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpupdateuserlogin?:@"updateuserlogin", varNames_tmptype?:methodNames_memberType()];
+    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpupdateuserlogin?:varNames_updateuserlogin, varNames_tmptype?:methodNames_memberType()];
 }
 static inline NSString *methodNames_memberorderURL() {
     NSString *varNames_tmpmemberorder = methodNames_getRequestConfigValueForKey(varNames_memberorder);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpmemberorder?:@"memberorder", varNames_tmptype?:methodNames_memberType()];
+    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpmemberorder?:varNames_memberorder, varNames_tmptype?:methodNames_memberType()];
 }
 static inline NSString *methodNames_appstoreURL() {
     NSString *varNames_tmpappstore = methodNames_getRequestConfigValueForKey(varNames_appstore);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpappstore?:@"appstore", varNames_tmptype?:methodNames_memberType()];
+    return [NSString stringWithFormat:@"%@/%@/%@/", methodNames_baseURL(), varNames_tmpappstore?:varNames_appstore, varNames_tmptype?:methodNames_memberType()];
 }
 static inline NSString *methodNames_suspensionCustomQQURL() {
     NSString *varNames_tmpcustomqq = methodNames_getRequestConfigValueForKey(varNames_customqq);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@", methodNames_baseURL(), varNames_tmpcustomqq?:@"customQQ", varNames_tmptype?:@"login"];
+    return [NSString stringWithFormat:@"%@/%@/%@", methodNames_baseURL(), varNames_tmpcustomqq?:varNames_customqq, varNames_tmptype?:methodNames_memberType()];
 }
 static inline NSString *methodNames_suspensionWalkThroughURL() {
     NSString *varNames_tmpwalkthrough = methodNames_getRequestConfigValueForKey(varNames_walkthrough);
     NSString *varNames_tmptype = methodNames_getRequestConfigValueForKey(varNames_type);
-    return [NSString stringWithFormat:@"%@/%@/%@", methodNames_baseURL(), varNames_tmpwalkthrough?:@"walkThrough", varNames_tmptype?:@"login"];
+    return [NSString stringWithFormat:@"%@/%@/%@", methodNames_baseURL(), varNames_tmpwalkthrough?:varNames_walkthrough, varNames_tmptype?:methodNames_memberType()];
 }
 
 

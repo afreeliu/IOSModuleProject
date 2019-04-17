@@ -12,6 +12,7 @@
 #import <ZSAutoLayoutModule/ZSAutoLayoutModule.h>
 #import <ZSAutoLayoutModule/ClassNames_BaseLayoutView.h>
 #import <ZSSuspensionBall/ClassNames_SuspensionBallButton.h>
+#import <ZSTool/ClassNames_GetBundle.h>
 @interface ViewController ()
 
 @end
@@ -22,6 +23,9 @@
     [super viewDidLoad];
     [ZSAutoLayoutModule zslog];
 
+    
+    NSDictionary *dic = methodNames_getBundlePlistContent();
+    NSLog(@"dic:%@", dic);
 }
 
 - (IBAction)showSuspsionball:(UIButton *)sender {

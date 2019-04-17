@@ -1,13 +1,7 @@
-//
-//  ClassNames_BaseModel.h
-//  ZSModel
-//
-//  Created by TB on 2019/3/7.
-//  Copyright © 2019 wo. All rights reserved.
-//
+
 
 #import <Foundation/Foundation.h>
-
+#import <ZSTool/ZSTool.h>
 @interface ClassNames_BaseModel : NSObject
 
 @property (nonatomic, readonly, assign) NSInteger varNames_code;

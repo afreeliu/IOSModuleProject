@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33875E24223647F400332426 /* ClassNames_GetBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 33875E23223647F400332426 /* ClassNames_GetBundle.m */; };
+		33875E2822364AF900332426 /* ClassNames_GetBundle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 33875E22223647F400332426 /* ClassNames_GetBundle.h */; };
+		33875E2922364DA400332426 /* ClassNames_BaseViewLayout.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 339744272231266700ABEF92 /* ClassNames_BaseViewLayout.h */; };
+		33875E2A22364DA400332426 /* ClassNames_URLProtocol.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3397440B2230F13700ABEF92 /* ClassNames_URLProtocol.h */; };
+		33875E2B22364DA400332426 /* ClassNames_URLSessionConfigure.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3397440D2230F13700ABEF92 /* ClassNames_URLSessionConfigure.h */; };
+		33875E2C22364DA400332426 /* ClassNames_URLSessionManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3397440C2230F13700ABEF92 /* ClassNames_URLSessionManager.h */; };
 		339743B92230B37700ABEF92 /* ZSTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 339743B82230B37700ABEF92 /* ZSTool.m */; };
 		339743BA2230B37700ABEF92 /* ZSTool.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 339743B72230B37700ABEF92 /* ZSTool.h */; };
 		3397440E2230F13700ABEF92 /* ClassNames_URLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 339744092230F13700ABEF92 /* ClassNames_URLSessionManager.m */; };
@@ -21,6 +27,11 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				33875E2922364DA400332426 /* ClassNames_BaseViewLayout.h in CopyFiles */,
+				33875E2A22364DA400332426 /* ClassNames_URLProtocol.h in CopyFiles */,
+				33875E2B22364DA400332426 /* ClassNames_URLSessionConfigure.h in CopyFiles */,
+				33875E2C22364DA400332426 /* ClassNames_URLSessionManager.h in CopyFiles */,
+				33875E2822364AF900332426 /* ClassNames_GetBundle.h in CopyFiles */,
 				339743BA2230B37700ABEF92 /* ZSTool.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -28,6 +39,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		33875E22223647F400332426 /* ClassNames_GetBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassNames_GetBundle.h; sourceTree = "<group>"; };
+		33875E23223647F400332426 /* ClassNames_GetBundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassNames_GetBundle.m; sourceTree = "<group>"; };
 		339743B42230B37700ABEF92 /* libZSTool.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZSTool.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		339743B72230B37700ABEF92 /* ZSTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZSTool.h; sourceTree = "<group>"; };
 		339743B82230B37700ABEF92 /* ZSTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZSTool.m; sourceTree = "<group>"; };
@@ -51,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33875E202236472900332426 /* GetBundlePlist */ = {
+			isa = PBXGroup;
+			children = (
+				33875E22223647F400332426 /* ClassNames_GetBundle.h */,
+				33875E23223647F400332426 /* ClassNames_GetBundle.m */,
+			);
+			name = GetBundlePlist;
+			sourceTree = "<group>";
+		};
 		339743AB2230B37700ABEF92 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +94,7 @@
 			children = (
 				339743B72230B37700ABEF92 /* ZSTool.h */,
 				339743B82230B37700ABEF92 /* ZSTool.m */,
+				33875E202236472900332426 /* GetBundlePlist */,
 				339744252231264900ABEF92 /* VIewLayout */,
 				339744102230F14300ABEF92 /* URLSession */,
 			);
@@ -159,6 +182,7 @@
 				339743B92230B37700ABEF92 /* ZSTool.m in Sources */,
 				3397440F2230F13700ABEF92 /* ClassNames_URLSessionConfigure.m in Sources */,
 				339744282231266700ABEF92 /* ClassNames_BaseViewLayout.m in Sources */,
+				33875E24223647F400332426 /* ClassNames_GetBundle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

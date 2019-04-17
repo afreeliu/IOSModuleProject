@@ -18,6 +18,10 @@
 		331855DD221B9744003907D5 /* libZSURLSeesion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 331850EE221A8D3E003907D5 /* libZSURLSeesion.a */; };
 		331855DE221B9744003907D5 /* libZSVideoPlay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 331850FA221A8D50003907D5 /* libZSVideoPlay.a */; };
 		33185634221BA361003907D5 /* libZSAutoLayoutModule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33185621221B9A60003907D5 /* libZSAutoLayoutModule.a */; };
+		33875E16223643A700332426 /* PlatFormGamesSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 33875E15223643A700332426 /* PlatFormGamesSDK.bundle */; };
+		33875E2522364A5D00332426 /* libZSModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 339743E02230B41900ABEF92 /* libZSModel.a */; };
+		33875E2622364A5D00332426 /* libZSSuggestView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 339743A72230B35500ABEF92 /* libZSSuggestView.a */; };
+		33875E2722364A5D00332426 /* libZSTool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 339743C52230B38100ABEF92 /* libZSTool.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,7 @@
 		331850F5221A8D50003907D5 /* ZSVideoPlay.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZSVideoPlay.xcodeproj; path = "../../视频播放/ZSVideoPlay/ZSVideoPlay.xcodeproj"; sourceTree = "<group>"; };
 		331850FB221A8D57003907D5 /* ZSSuspensionBall.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZSSuspensionBall.xcodeproj; path = "../../悬浮球/ZSSuspensionBall/ZSSuspensionBall.xcodeproj"; sourceTree = "<group>"; };
 		3318561C221B9A60003907D5 /* ZSAutoLayoutModule.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZSAutoLayoutModule.xcodeproj; path = "../../自动布局/ZSAutoLayoutModule/ZSAutoLayoutModule.xcodeproj"; sourceTree = "<group>"; };
+		33875E15223643A700332426 /* PlatFormGamesSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PlatFormGamesSDK.bundle; sourceTree = "<group>"; };
 		339743A02230B35400ABEF92 /* ZSSuggestView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZSSuggestView.xcodeproj; path = ../../ZSSuggestView/ZSSuggestView.xcodeproj; sourceTree = "<group>"; };
 		339743C02230B38100ABEF92 /* ZSTool.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZSTool.xcodeproj; path = ../../ZSTool/ZSTool.xcodeproj; sourceTree = "<group>"; };
 		339743DB2230B41900ABEF92 /* ZSModel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZSModel.xcodeproj; path = ../../ZSModel/ZSModel.xcodeproj; sourceTree = "<group>"; };
@@ -105,6 +110,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33875E2522364A5D00332426 /* libZSModel.a in Frameworks */,
+				33875E2622364A5D00332426 /* libZSSuggestView.a in Frameworks */,
+				33875E2722364A5D00332426 /* libZSTool.a in Frameworks */,
 				33185634221BA361003907D5 /* libZSAutoLayoutModule.a in Frameworks */,
 				331855DB221B9744003907D5 /* libZSIAPPay.a in Frameworks */,
 				331855DC221B9744003907D5 /* libZSSuspensionBall.a in Frameworks */,
@@ -152,6 +160,7 @@
 				33185081221A8613003907D5 /* Assets.xcassets */,
 				33185083221A8613003907D5 /* LaunchScreen.storyboard */,
 				33185086221A8613003907D5 /* Info.plist */,
+				33875E15223643A700332426 /* PlatFormGamesSDK.bundle */,
 				33185087221A8613003907D5 /* main.m */,
 			);
 			path = ModuleDemo;
@@ -381,6 +390,7 @@
 				33185085221A8613003907D5 /* LaunchScreen.storyboard in Resources */,
 				33185082221A8613003907D5 /* Assets.xcassets in Resources */,
 				33185080221A8612003907D5 /* Main.storyboard in Resources */,
+				33875E16223643A700332426 /* PlatFormGamesSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
